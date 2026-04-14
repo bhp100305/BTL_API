@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Kết quả</title>
+<link rel="stylesheet" href="/css/admin.css">
+<link rel="stylesheet" href="/css/practice.css">
+</head>
+<body>
+
+<div class="container">
+
+<div class="sidebar">
+    <h2 class="logo">EDUSO</h2>
+    <ul>
+        <li onclick="goHome()">🏠 Trang chủ</li>
+        <li onclick="goClass()">📚 Lớp của tôi</li>
+        <li onclick="goManage()">📁 Quản lý</li>
+        <li onclick="goMaterial()">📖 Học liệu</li>
+        <li onclick="goSchedule()">📅 Lịch dạy</li>
+        <li onclick="goExamMenu()">📝 Khảo thí</li>
+        <li onclick="goNews()">📰 Tin tức</li>
+        <li onclick="goGuide()">❓ Hướng dẫn</li>
+    </ul>
+</div>
+
+<div class="main">
+
+    <h2 class="title">📊 Kết quả luyện tập</h2>
+
+    <!-- CARD RESULT -->
+    <div class="result-card">
+
+        <div class="score-box">
+            <div class="circle">
+                <span id="scoreText"></span>
+            </div>
+            <p class="score-label">Kết quả của bạn</p>
+        </div>
+
+        <div class="info-box">
+            <div class="info-item weak">
+                <h4>🔥 Chủ đề yếu</h4>
+                <p id="weak"></p>
+            </div>
+
+            <div class="info-item suggest">
+                <h4>👉 Gợi ý luyện tập</h4>
+                <p id="suggest"></p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ACTION -->
+    <div class="action-box">
+        <button onclick="goPractice()">🔁 Luyện lại</button>
+        <button onclick="goHome()">🏠 Về trang chủ</button>
+    </div>
+
+</div>
+
+<script>
+const url = new URL(window.location.href);
+const score = parseInt(url.searchParams.get("score"));
+const total = parseInt(url.searchParams.get("total"));
+
+let percent = Math.round((score / total) * 100);
+
+/* HIỂN THỊ SCORE */
+document.getElementById("scoreText").innerText = percent + "%";
+
+/* PHÂN TÍCH */
+let weak = "";
+let suggest = "";
+
+if(percent >= 80){
+    weak = "Không có 🎉";
+    suggest = "Bạn đang rất tốt, thử nâng cấp độ khó!";
+}
+else if(percent >= 50){
+    weak = "Một số kiến thức cơ bản";
+    suggest = "Ôn lại lý thuyết + làm thêm bài tập";
+}
+else{
+    weak = "Kiến thức nền yếu 🔥";
+    suggest = "Nên học lại từ đầu + luyện tập nhiều hơn";
+}
+
+/* DEMO: có thể thay bằng AI sau */
+if(Math.random() > 0.5){
+    weak = "JOIN";
+}
+
+document.getElementById("weak").innerText = weak;
+document.getElementById("suggest").innerText = suggest;
+// ===== SIDEBAR NAV =====
+
+function goHome(){
+    window.location.href = "admin.html";
+}
+
+function goClass(){
+    window.location.href = "class.html";
+}
+
+function goManage(){
+    window.location.href = "manage.html";
+}
+
+function goMaterial(){
+    window.location.href = "material.html";
+}
+
+function goSchedule(){
+    window.location.href = "schedule.html";
+}
+
+function goExamMenu(){
+    window.location.href = "admin.html"; // trang hiện tại (khảo thí)
+}
+
+function goNews(){
+    window.location.href = "news.html";
+}
+
+function goGuide(){
+    window.location.href = "guide.html";
+}
+</script>
+</body>
+</html>

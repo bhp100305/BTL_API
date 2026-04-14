@@ -1,0 +1,14 @@
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table td, .table th {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.correct {
+    background: lightgreen;
+    font-weight: bold;
+}

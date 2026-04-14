@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Kết quả bài thi</title>
+    <link rel="stylesheet" href="css/result.css">
+</head>
+<body>
+
+<div class="result-container">
+    <div class="result-card">
+        <div class="icon">🎉</div>
+
+        <h1>Hoàn thành bài thi</h1>
+        <p class="sub-text">Bạn đã nộp bài thành công</p>
+
+        <div class="score-box">
+            <span>Điểm của bạn</span>
+            <h2 id="score">0/0</h2>
+        </div>
+
+        <div class="info-box">
+            <div class="info-item">
+                <span>Số câu đúng</span>
+                <b id="correct">0</b>
+            </div>
+
+            <div class="info-item">
+                <span>Tổng số câu</span>
+                <b id="total">0</b>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button onclick="goHome()" class="home-btn">Về trang chủ</button>
+            <button onclick="reviewExam()" class="review-btn">Xem lại bài làm</button>
+            <button onclick="redoExam()" class="redo-btn">Làm lại bài</button>
+        </div>
+    </div>
+</div>
+
+<script src="../js/result.js"></script>
+</body>
+</html>

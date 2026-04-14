@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Làm bài thi</title>
+    <link rel="stylesheet" href="/css/exam.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <div>🏠 Trang chủ / Kiểm tra / <b>Toán 12</b></div>
+    <div class="header-center">
+        <h2>THI THỬ HỌC KỲ 2</h2>
+        <p>Thời gian: 45 phút</p>
+    </div>
+    <div>
+        <button>Xem trước</button>
+        <button>In đề</button>
+    </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+    <!-- LEFT MENU -->
+    <div class="left-menu">
+        <h3>Cấu trúc bài</h3>
+        <div id="menuList"></div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+        <div id="questions"></div>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="right-panel">
+        <h3>Danh sách câu trả lời</h3>
+        <div id="questionGrid" class="grid"></div>
+
+        <button class="submit-btn" onclick="submitExam()">Nộp bài</button>
+
+        <div class="timer">
+            ⏰ <span id="timer">45:00</span>
+        </div>
+    </div>
+
+</div>
+
+<script src="/js/exam.js"></script>
+</body>
+</html>

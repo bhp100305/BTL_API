@@ -1,0 +1,98 @@
+body{
+    font-family: Arial;
+    background:#f1f5f9;
+    padding:30px;
+}
+
+.container{
+    background:#fff;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* ACTION */
+.actions{
+    margin-bottom:15px;
+}
+
+.actions button{
+    padding:10px 15px;
+    margin-right:10px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.actions button:first-child{
+    background:#2563eb;
+    color:#fff;
+}
+
+.actions button:last-child{
+    background:#22c55e;
+    color:#fff;
+}
+
+/* TABLE */
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th, td{
+    border:1px solid #ddd;
+    padding:10px;
+    text-align:center;
+}
+
+th{
+    background:#1e3a8a;
+    color:#fff;
+}
+
+input{
+    width:70px;
+    padding:5px;
+    text-align:center;
+}
+
+/* DELETE BTN */
+.delete-btn{
+    background:#ef4444;
+    color:#fff;
+    border:none;
+    padding:5px 10px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+/* POPUP */
+.popup{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.4);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.hidden{
+    display:none;
+}
+
+.popup-box{
+    background:#fff;
+    padding:20px;
+    border-radius:10px;
+    width:300px;
+}
+
+.popup-box input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+}

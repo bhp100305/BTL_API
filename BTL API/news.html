@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Tin tức</title>
+
+<link rel="stylesheet" href="/css/admin.css">
+<link rel="stylesheet" href="/css/news.css">
+
+</head>
+<body>
+
+<div class="container">
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <h2 class="logo">EDUSO</h2>
+    <ul>
+        <li onclick="goHome()">🏠 Trang chủ</li>
+        <li onclick="goClass()">📚 Lớp của tôi</li>
+        <li onclick="goManage()">📁 Quản lý</li>
+        <li onclick="goMaterial()">📖 Học liệu</li>
+        <li onclick="goSchedule()">📅 Lịch dạy</li>
+        <li onclick="goExamMenu()">📝 Khảo thí</li>
+        <li class="active">📰 Tin tức</li>
+        <li onclick="goGuide()">❓ Hướng dẫn</li>
+    </ul>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+    <!-- HEADER -->
+    <div class="top-bar">
+        <input type="text" id="search" placeholder="🔍 Tìm tin...">
+
+        <select id="filter">
+            <option value="">Tất cả</option>
+            <option value="Java">Java</option>
+            <option value="SQL">SQL</option>
+            <option value="Tips">Tips</option>
+        </select>
+    </div>
+
+    <!-- SLIDER -->
+    <div id="slider" class="slider"></div>
+
+    <!-- GRID -->
+    <div id="newsList" class="news-grid"></div>
+
+</div>
+</div>
+
+<script src="/js/news.js"></script>
+</body>
+</html>

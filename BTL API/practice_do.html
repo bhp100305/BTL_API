@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Luyện tập</title>
+<link rel="stylesheet" href="/css/admin.css">
+<link rel="stylesheet" href="/css/practice.css">
+</head>
+<body>
+
+<div class="container">
+
+<div class="sidebar">
+    <h2 class="logo">EDUSO</h2>
+    <ul>
+        <li onclick="goHome()">🏠 Trang chủ</li>
+        <li onclick="goClass()">📚 Lớp của tôi</li>
+        <li onclick="goManage()">📁 Quản lý</li>
+        <li onclick="goMaterial()">📖 Học liệu</li>
+        <li onclick="goSchedule()">📅 Lịch dạy</li>
+        <li onclick="goExamMenu()">📝 Khảo thí</li>
+        <li onclick="goNews()">📰 Tin tức</li>
+        <li onclick="goGuide()">❓ Hướng dẫn</li>
+    </ul>
+</div>
+
+<div class="main">
+
+<h2>📖 Luyện tập</h2>
+
+<div id="score">Điểm: 0</div>
+<div id="list"></div>
+
+<button onclick="finish()">Xem kết quả</button>
+
+</div>
+</div>
+
+<script src="/js/practice_do.js"></script>
+</body>
+</html>

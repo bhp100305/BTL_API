@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Chi tiết kỳ thi</title>
+
+<link rel="stylesheet" href="css/exam-detail.css">
+</head>
+
+<body>
+
+<h2>Quản lý câu hỏi</h2>
+
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Câu hỏi</th>
+<th>Đáp án đúng</th>
+<th>Điểm</th>
+<th>Xóa</th>
+</tr>
+</thead>
+<tbody id="table"></tbody>
+</table>
+
+<hr>
+
+<h3>Thêm câu hỏi</h3>
+
+<input id="q" placeholder="Câu hỏi"><br>
+<input id="a" placeholder="A">
+<input id="b" placeholder="B">
+<input id="c" placeholder="C">
+<input id="d" placeholder="D">
+<input id="correct" placeholder="Đáp án đúng">
+<input id="score" placeholder="Điểm"><br>
+
+<button onclick="add()">Thêm</button>
+
+<script src="js/exam-detail.js"></script>
+
+</body>
+</html>

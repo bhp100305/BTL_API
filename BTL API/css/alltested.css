@@ -1,0 +1,21 @@
+.card {
+    width: 700px;
+    padding: 30px;
+    margin: 50px 0;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.btn {
+    width: 150px;
+    height: 40px;
+    margin-right: 10px;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.mid { background: orange; color: white; }
+.final { background: green; color: white; }

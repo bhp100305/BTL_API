@@ -1,0 +1,223 @@
+/* ===== RESET ===== */
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    font-family: Arial, sans-serif;
+}
+
+/* ===== MAIN ===== */
+.main{
+    padding:20px;
+    background:#f5f7fb;
+    min-height:100vh;
+
+    /* 👇 giới hạn chiều rộng cho đẹp */
+    max-width:1200px;
+    margin:auto;
+}
+
+/* ===== TOP BAR ===== */
+.top-bar{
+    display:flex;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.top-bar input,
+.top-bar select{
+    padding:10px 12px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    outline:none;
+    transition:0.2s;
+
+}
+.top-bar input{
+    width: 700px;;
+}
+.top-bar input:focus,
+.top-bar select:focus{
+    border-color:#4a90e2;
+    box-shadow:0 0 5px rgba(74,144,226,0.3);
+}
+
+/* ===== SLIDER ===== */
+.slider{
+    height:230px;
+    border-radius:15px;
+    overflow:hidden;
+    margin-bottom:25px;
+    position:relative;
+}
+
+.slide{
+    width:100%;
+    height:100%;
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:flex-end;
+}
+
+.overlay{
+    background:linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    width:100%;
+    padding:20px;
+    color:white;
+}
+
+.overlay h2{
+    margin-bottom:5px;
+}
+
+/* ===== GRID CHUẨN 3 CỘT ===== */
+.news-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr); /* 🔥 LUÔN 3 CỘT */
+    gap:20px;
+}
+
+/* ===== CARD ===== */
+.news-card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+    display:flex;
+    flex-direction:column;
+}
+
+.news-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* ===== IMAGE ===== */
+.news-img{
+    width:100%;
+    height:160px;
+    background-size:cover;
+    background-position:center;
+}
+
+/* ===== CONTENT ===== */
+.news-content{
+    padding:15px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+/* ===== TITLE ===== */
+.news-content h4{
+    font-size:16px;
+    line-height:1.4;
+
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+}
+
+/* ===== TEXT ===== */
+.news-content p{
+    font-size:14px;
+    color:#555;
+
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+
+    display:-webkit-box;
+    -webkit-line-clamp:3;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+}
+
+/* ===== TIME ===== */
+.news-content small{
+    color:#999;
+}
+
+/* ===== TAG ===== */
+.tag{
+    display:inline-block;
+    padding:4px 10px;
+    border-radius:20px;
+    font-size:12px;
+    width:fit-content;
+    font-weight:600;
+}
+
+.tag.Java{ background:#e3f2fd; color:#1976d2; }
+.tag.SQL{ background:#e8f5e9; color:#2e7d32; }
+.tag.Tips{ background:#fff3e0; color:#ef6c00; }
+
+/* ===== MODAL ===== */
+.modal{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+
+.modal-box{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    width:500px;
+    max-width:90%;
+    animation:fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:scale(0.9);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* Tablet */
+@media (max-width:1024px){
+    .news-grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile */
+@media (max-width:600px){
+    .news-grid{
+        grid-template-columns: 1fr;
+    }
+
+    .top-bar{
+        flex-direction:column;
+    }
+
+    .slider{
+        height:180px;
+    }
+}
+
+/* Mobile nhỏ */
+@media (max-width:400px){
+    .slider{
+        height:150px;
+    }
+}
