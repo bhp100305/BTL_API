@@ -3,19 +3,67 @@
     padding: 30px;
     margin: 50px 0;
     background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: 0.3s;
 }
 
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* ===== BUTTON CHUNG ===== */
 .btn {
     width: 150px;
     height: 40px;
-    margin-right: 10px;
-    padding: 5px 10px;
+    margin: 5px 10px 5px 0;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: 0.2s;
 }
 
-.mid { background: orange; color: white; }
-.final { background: green; color: white; }
+/* hover hiệu ứng */
+.btn:hover {
+    opacity: 0.85;
+    transform: scale(1.05);
+}
+
+/* ===== BUTTON MẶC ĐỊNH ===== */
+.mid { 
+    background: orange; 
+    color: white; 
+}
+
+.final { 
+    background: green; 
+    color: white; 
+}
+
+/* ===== THÊM SỬA / XÓA ===== */
+.edit {
+    background: #3498db;
+    color: white;
+}
+
+.delete {
+    background: #e74c3c;
+    color: white;
+}
+
+/* hover riêng cho delete cho rõ */
+.delete:hover {
+    background: #c0392b;
+}
+
+/* ===== BỐ CỤC ===== */
+.card b {
+    font-size: 20px;
+}
+
+#list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

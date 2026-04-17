@@ -1,18 +1,114 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
-<meta charset="UTF-8">
-<title>Chọn kỳ thi</title>
-
-<link rel="stylesheet" href="css/student.css">
+    <meta charset="UTF-8">
+    <title>EDUSO - Sinh viên</title>
+    <link rel="stylesheet" href="/css/student.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
-
 <body>
 
-<h2>Chọn kỳ thi</h2>
-<div id="exams"></div>
+<div class="container">
 
-<script src="js/student.js"></script>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="images/gtvt.png">
+            <h2>EDUSO</h2>
+        </div>
+
+        <ul>
+            <li onclick="goHome()">🏠 Trang chủ</li>
+            <li onclick="goClass()">📚 Lớp của tôi</li>
+            <li onclick="goMaterial()">📖 Học liệu</li>
+            <li onclick="goSchedule()">📅 Lịch học</li>
+            <li onclick="goExam()">📝 Bài kiểm tra</li>
+            <li onclick="goNews()">📰 Tin tức</li>
+            <li onclick="goGuide()">❓ Hướng dẫn</li>
+        </ul>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <h2 class="title">Trang Chủ</h2>
+
+        <!-- CARDS -->
+        <section class="cards">
+
+            <!-- CARD 1 -->
+            <div class="card">
+                <h3>Khóa học & Đề kiểm tra</h3>
+                <div class="card-main blue">
+                    <i class="fa fa-book"></i>
+                    <h1>8</h1>
+                </div>
+                <p>Tất cả môn học: SQL, OOP, DSA,...</p>
+                <button class="btn-primary">Xem chi tiết</button>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="card">
+                <h3>Bài test & Deadline</h3>
+                <div class="card-main red">
+                    <i class="fa fa-clock"></i>
+                    <h1>4</h1>
+                </div>
+                <p>Sắp đến hạn nộp bài</p>
+                <button class="btn-danger">Nộp bài ngay</button>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="card">
+                <h3>Lịch thi sắp tới</h3>
+                <div class="card-main purple">
+                    <i class="fa fa-calendar"></i>
+                    <h1>2</h1>
+                </div>
+                <p>Giữa kỳ & Cuối kỳ</p>
+                <button class="btn-purple">Xem lịch</button>
+            </div>
+
+        </section>
+
+        <!-- BOTTOM -->
+        <section class="bottom">
+
+            <!-- CHART -->
+            <div class="chart-box">
+                <h3>Hiệu suất học tập</h3>
+                <canvas id="chart"></canvas>
+            </div>
+
+            <!-- NEWS -->
+            <div class="news-box">
+                <h3>Thông báo</h3>
+
+                <div class="news-item">
+                    <b>Bài test OOP</b>
+                    <p>Còn 2 ngày</p>
+                </div>
+
+                <div class="news-item">
+                    <b>Tài liệu DSA</b>
+                    <p>Đã cập nhật</p>
+                </div>
+
+                <div class="news-item">
+                    <b>Hạn nộp SQL</b>
+                    <p>19/04</p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="/js/student.js"></script>
 
 </body>
 </html>

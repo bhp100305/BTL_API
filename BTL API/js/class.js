@@ -12,15 +12,17 @@ function loadClasses(){
         data.forEach(c=>{
             html += `
             <div class="class-card">
-                <div onclick="goScore(${c.id})">
+
+                <div onclick="goScore(${c.id})" style="cursor:pointer">
                     <div class="class-title">${c.name}</div>
                     <div class="class-id">ID: ${c.id}</div>
                 </div>
 
-                <div style="margin-top:10px;">
-                    <button onclick="edit(${c.id}, '${c.name}')">Sửa</button>
-                    <button onclick="del(${c.id})">Xóa</button>
+                <div class="card-actions">
+                    <button class="btn-edit" onclick="edit(${c.id}, '${c.name}')">Sửa</button>
+                    <button class="btn-delete" onclick="del(${c.id})">Xóa</button>
                 </div>
+
             </div>
             `;
         });

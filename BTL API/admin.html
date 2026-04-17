@@ -2,15 +2,20 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Quản lý</title>
+    <title>EDUSO - Quản lý</title>
     <link rel="stylesheet" href="/css/admin.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
 
 <div class="container">
 
-    <div class="sidebar">
-        <h2 class="logo">EDUSO</h2>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="images/gtvt.png" alt="logo">
+            <h2>EDUSO</h2>
+        </div>
 
         <ul>
             <li onclick="goHome()">🏠 Trang chủ</li>
@@ -22,44 +27,97 @@
             <li onclick="goNews()">📰 Tin tức</li>
             <li onclick="goGuide()">❓ Hướng dẫn</li>
         </ul>
-    </div>
+    </aside>
 
     <!-- MAIN -->
-    <div class="main">
+    <main class="main">
 
-        <div class="breadcrumb">
-            Trang Chủ 
+        <h2 class="title">Trang Chủ</h2>
+
+        <!-- CARDS -->
+        <section class="cards">
+
+            <!-- CARD 1 -->
+            <div class="card">
+                <h3>Quản lý bài kiểm tra</h3>
+                <div class="card-main blue" onclick="goExam()">
+                    <i class="fa fa-chart-bar"></i>
+                    <p>Tổng hợp bài kiểm tra</p>
+                </div>
+                <div class="card-info">
+                    <p>Bài gần đây: SQL, OOP,API</p>
+                </div>
             </div>
 
-                <!-- BUTTON GROUP -->
-                <div class="circle-group">
-
-            <div class="circle blue" onclick="goExam()">
-                    TỔNG HỢP BÀI<br>KIỂM TRA
+            <!-- CARD 2 -->
+            <div class="card">
+                <h3>Tạo bài ôn tập</h3>
+                <div class="card-main red" onclick="goPractice()">
+                    <i class="fa fa-pen"></i>
+                    <p>Tạo bài ôn tập nội dung</p>
                 </div>
-
-                <div class="circle red" onclick="goPractice()">
-                    TẠO BÀI ÔN<br>TẬP NỘI DUNG
-                </div>
-
-                <div class="circle orange" onclick="goPracticeType()">
-                    TẠO BÀI ÔN<br>THEO DẠNG ĐỀ
-                </div>
-
-                <div class="circle purple" onclick="goTest()">
-                    TẠO BÀI<br>KIỂM TRA
-                </div>
-
-                <div class="circle green" onclick="goResult()">
-                    KẾT QUẢ
+                <button onclick="goPractice()">Tạo nhanh API</button>
+                <button onclick="goPractice()">Tạo nhanh SQL</button>
             </div>
 
-        </div>
+            <!-- CARD 3 -->
+            <div class="card">
+                <h3>Tạo bài kiểm tra</h3>
+                <div class="card-main purple">
+                    <i class="fa fa-clipboard"></i>
+                    <p>Tạo bài kiểm tra</p>
+                </div>
 
-    </div>
+                <input type="text" placeholder="Tên bài kiểm tra">
+                <select>
+                    <option>Chọn lớp</option>
+                    <option>Toán</option>
+                    <option>Lý</option>
+                </select>
+
+                <button class="btn-primary" onclick="goTest()">Bắt đầu</button>
+            </div>
+
+        </section>
+
+        <!-- BOTTOM -->
+        <section class="bottom">
+
+            <!-- CHART -->
+            <div class="chart-box">
+                <h3>Thống kê hoạt động</h3>
+                <canvas id="chart"></canvas>
+            </div>
+
+            <!-- NEWS -->
+            <div class="news-box">
+                <h3>Tin tức & thông báo</h3>
+
+                <div class="news-item">
+                    <b>Lịch thi sắp tới</b>
+                    <p>Toán - 16/4/2026</p>
+                </div>
+
+                <div class="news-item">
+                    <b>Thông báo</b>
+                    <p>Đổi lịch thi giữa kỳ</p>
+                </div>
+
+                <div class="news-item">
+                    <b>Cập nhật</b>
+                    <p>Thi lại cuối kỳ II</p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
 
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="/js/admin.js"></script>
+
 </body>
 </html>

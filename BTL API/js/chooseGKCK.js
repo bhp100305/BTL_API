@@ -14,15 +14,69 @@ function load(){
         .filter(e => e.class_id == class_id && e.type == type)
         .forEach(e=>{
             html += `
-                <div class="card"
-                    onclick="goQuestion(${e.id})">
-                    ${e.name}
+                <div class="card">
+
+                    <div class="title"
+                        onclick="goQuestion(${e.id})">
+                        📄 ${e.name}
+                    </div>
+
+                    <div class="actions">
+                        <button class="view"
+                            onclick="goQuestion(${e.id})">
+                            👁 Xem
+                        </button>
+
+                        <button class="edit"
+                            onclick="editExam(${e.id}, '${e.name}')">
+                            ✏️ Sửa
+                        </button>
+
+                        <button class="delete"
+                            onclick="deleteExam(${e.id})">
+                            🗑 Xóa
+                        </button>
+                    </div>
+
                 </div>
             `;
         });
 
         document.getElementById("list").innerHTML = html;
     });
+}
+function editExam(id, oldName){
+    let newName = prompt("Nhập tên mới:", oldName);
+
+    if(newName && newName.trim() !== ""){
+        fetch(API + "/api/exams/" + id, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name: newName
+            })
+        })
+        .then(res => res.json())
+        .then(() => {
+            alert("Đã sửa!");
+            load();
+        });
+    }
+}
+
+function deleteExam(id){
+    if(confirm("Bạn có chắc muốn xóa?")){
+        fetch(API + "/api/exams/" + id, {
+            method: "DELETE"
+        })
+        .then(res => res.json())
+        .then(() => {
+            alert("Đã xóa!");
+            load();
+        });
+    }
 }
 
 function goQuestion(exam_id){

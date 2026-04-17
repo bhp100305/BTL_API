@@ -53,9 +53,6 @@ body{
 .sidebar li:hover{
     background:#e2e8f0;
 }
-.logo{
-    margin-bottom:20px;
-}
 
 .sidebar .active{
     background:#fee2e2;
@@ -161,4 +158,149 @@ body{
     background:#fee2e2;
     color:red;
     font-weight:bold;
+}
+.logo {
+    text-align: center;
+    
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+}
+
+.school-name {
+    margin-top: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    color:black;
+}
+/* ================= FIX DASHBOARD (KHÔNG ĐỤNG CODE CŨ) ================= */
+
+/* override lỗi căn giữa */
+
+
+/* fix container không bị bó */
+.container{
+    min-height:100vh;
+    height:auto !important;
+}
+
+/* tiêu đề */
+.title{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+/* cards layout */
+.cards{
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:20px;
+}
+
+/* card đẹp hơn */
+.card{
+    background:#fff;
+    border-radius:16px;
+    padding:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+/* phần chính card */
+.card-main{
+    border-radius:12px;
+    padding:25px;
+    color:#fff;
+    text-align:center;
+    cursor:pointer;
+    margin-bottom:15px;
+    transition:0.3s;
+}
+
+.card-main:hover{
+    transform:scale(1.03);
+}
+
+/* gradient giống hình */
+.card-main.blue{
+    background:linear-gradient(135deg,#1e3a8a,#3b82f6) !important;
+}
+
+.card-main.red{
+    background:linear-gradient(135deg,#dc2626,#f87171) !important;
+}
+
+.card-main.purple{
+    background:linear-gradient(135deg,#7c3aed,#a78bfa) !important;
+}
+
+/* button */
+.card button{
+    width:100%;
+    padding:10px;
+    margin-top:8px;
+    border:none;
+    border-radius:8px;
+  
+    cursor:pointer;
+}
+
+.card button:hover{
+    background:#cbd5e1;
+}
+
+.btn-primary{
+    background:#3b82f6 !important;
+    color:#fff;
+}
+
+/* input */
+.card input,
+.card select{
+    width:100%;
+    padding:10px;
+    margin:6px 0;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+/* bottom layout */
+.bottom{
+    width:100%;
+    max-width:1200px;
+    margin:25px auto 0;
+
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+    gap:20px;
+}
+
+/* chart + news */
+.chart-box,
+.news-box{
+    background:#fff;
+    padding:20px;
+    border-radius:16px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* responsive */
+@media (max-width: 900px){
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .bottom{
+        grid-template-columns:1fr;
+    }
 }

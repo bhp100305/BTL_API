@@ -1,5 +1,4 @@
 const API = "http://localhost:5000";
-
 const url = new URL(window.location.href);
 const exam_id = url.searchParams.get("exam_id");
 
@@ -9,13 +8,13 @@ function load(){
     .then(res=>res.json())
     .then(data=>{
         let html = "";
-        let count=0;
+        let i = 1;
+
         data.forEach(q=>{
-            count++;
             html += `
             <div class="question-card">
-                <h2>Câu ${count}</h2>
-                <b>${q.question}</b>
+                <h3>Câu ${i++}</h3>
+                <p>${q.question}</p>
 
                 <div class="answer ${q.correct=="A"?"correct":""}">A. ${q.a}</div>
                 <div class="answer ${q.correct=="B"?"correct":""}">B. ${q.b}</div>
@@ -23,10 +22,9 @@ function load(){
                 <div class="answer ${q.correct=="D"?"correct":""}">D. ${q.d}</div>
 
                 <div class="actions">
-                    <button onclick="edit(${q.id})">✏️ Sửa</button>
-                    <button onclick="remove(${q.id})">❌ Xóa</button>
+                    <button onclick="edit(${q.id})">✏️</button>
+                    <button onclick="remove(${q.id})">🗑</button>
                 </div>
-
             </div>
             `;
         });
@@ -37,12 +35,12 @@ function load(){
 
 /* ADD */
 function add(){
-    let question = document.getElementById("question").value;
-    let a = document.getElementById("a").value;
-    let b = document.getElementById("b").value;
-    let c = document.getElementById("c").value;
-    let d = document.getElementById("d").value;
-    let correct = document.getElementById("correct").value;
+    let question = questionEl.value;
+    let a = aEl.value;
+    let b = bEl.value;
+    let c = cEl.value;
+    let d = dEl.value;
+    let correct = correctEl.value;
 
     fetch(API + "/api/questions",{
         method:"POST",
@@ -55,8 +53,18 @@ function add(){
         })
     })
     .then(()=>{
+        clearForm();
         load();
     });
+}
+
+/* CLEAR */
+function clearForm(){
+    questionEl.value="";
+    aEl.value="";
+    bEl.value="";
+    cEl.value="";
+    dEl.value="";
 }
 
 /* DELETE */
@@ -64,62 +72,51 @@ function remove(id){
     if(confirm("Xóa câu hỏi?")){
         fetch(API + "/api/questions/" + id,{
             method:"DELETE"
-        })
-        .then(()=>load());
+        }).then(()=>load());
     }
 }
 
 /* EDIT */
 function edit(id){
-    let question = prompt("Câu hỏi mới:");
+    let question = prompt("Câu hỏi:");
     let a = prompt("A:");
     let b = prompt("B:");
     let c = prompt("C:");
     let d = prompt("D:");
-    let correct = prompt("Đáp án đúng (A/B/C/D):");
+    let correct = prompt("Đáp án:");
 
     fetch(API + "/api/questions/" + id,{
         method:"PUT",
         headers:{"Content-Type":"application/json"},
-        body: JSON.stringify({
-            question,a,b,c,d,correct
-        })
-    })
-    .then(()=>load());
-}
-// ===== SIDEBAR NAV =====
-
-function goHome(){
-    window.location.href = "admin.html";
+        body: JSON.stringify({question,a,b,c,d,correct})
+    }).then(()=>load());
 }
 
-function goClass(){
-    window.location.href = "class.html";
+/* 🤖 AI GENERATE */
+function generateAI(){
+    let topic = prompt("Nhập chủ đề (VD: SQL JOIN):");
+
+    fetch(API + "/api/practice/random")
+    .then(res=>res.json())
+    .then(data=>{
+        let q = data[0];
+
+        questionEl.value = q.question;
+        aEl.value = q.a;
+        bEl.value = q.b;
+        cEl.value = q.c;
+        dEl.value = q.d;
+        correctEl.value = q.correct;
+    });
 }
 
-function goManage(){
-    window.location.href = "manage.html";
-}
+/* ELEMENTS */
+const questionEl = document.getElementById("question");
+const aEl = document.getElementById("a");
+const bEl = document.getElementById("b");
+const cEl = document.getElementById("c");
+const dEl = document.getElementById("d");
+const correctEl = document.getElementById("correct");
 
-function goMaterial(){
-    window.location.href = "material.html";
-}
-
-function goSchedule(){
-    window.location.href = "schedule.html";
-}
-
-function goExamMenu(){
-    window.location.href = "admin.html"; // trang hiện tại (khảo thí)
-}
-
-function goNews(){
-    window.location.href = "news.html";
-}
-
-function goGuide(){
-    window.location.href = "guide.html";
-}
-// ================== INIT ==================
-
+/* INIT */
 load();

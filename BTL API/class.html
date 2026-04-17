@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Lớp học</title>
-    <link rel="stylesheet" href="/css/admin.css">
     <link rel="stylesheet" href="/css/class.css">
+    <link rel="stylesheet" href="/css/admin.css">
 </head>
 <body>
 
@@ -12,9 +12,12 @@
 
     <!-- SIDEBAR -->
     <div class="sidebar">
-        <h2 class="logo">EDUSO</h2>
+        <div class="logo">
+            <img src="/images/gtvt.png">
+            <h2>EDUSO</h2>
+        </div>
 
-        <ul>
+        <ul class="menu">
             <li onclick="goHome()">🏠 Trang chủ</li>
             <li class="active">📚 Lớp của tôi</li>
             <li onclick="goManage()">📁 Quản lý</li>
@@ -29,30 +32,35 @@
     <!-- MAIN -->
     <div class="main">
 
-        <div class="breadcrumb">
-            Trang chủ / Lớp học
+        <div class="topbar">
+            <h2>📚 Danh sách lớp</h2>
+            <button onclick="openAdd()" class="btn-add">+ Tạo lớp</button>
         </div>
-
-        <h2>📚 Danh sách lớp</h2>
-
-        <button onclick="openAdd()" class="btn-add">+ Tạo lớp</button>
 
         <div id="classList" class="class-grid"></div>
 
     </div>
-    <div id="popup" class="popup hidden">
-        <div class="popup-box">
-            <h3 id="title">Tạo lớp</h3>
-            <input id="className" placeholder="Tên lớp">
 
-            <button onclick="save()">Lưu</button>
-            <button onclick="closePopup()">Hủy</button>
+</div>
+
+<!-- POPUP -->
+<div id="popup" class="popup hidden">
+    <div class="popup-box">
+
+        <h3 id="title">Tạo lớp</h3>
+
+        <input id="className" placeholder="Nhập tên lớp...">
+
+        <div class="popup-actions">
+            <button class="btn-save" onclick="save()">💾 Lưu</button>
+            <button class="btn-cancel" onclick="closePopup()">✖ Hủy</button>
         </div>
+
     </div>
-    
 </div>
 
 <script src="/js/class.js"></script>
 <script src="/js/admin.js"></script>
+
 </body>
 </html>

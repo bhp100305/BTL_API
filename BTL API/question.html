@@ -12,32 +12,33 @@
 
     <!-- SIDEBAR -->
     <div class="sidebar">
-        <h2 class="logo">EDUSO</h2>
+        <div class="logo">
+            <img src="/images/gtvt.png">
+            <div class="school-name">EDUSO</div>
+        </div>
 
         <ul>
             <li onclick="goHome()">🏠 Trang chủ</li>
-            <li onclick="goClass()">📚 Lớp của tôi</li>
-            <li onclick="goManage()">📁 Quản lý</li>
-            <li onclick="goMaterial()">📖 Học liệu</li>
-            <li onclick="goSchedule()">📅 Lịch dạy</li>
-            <li onclick="goExamMenu()">📝 Khảo thí</li>
-            <li onclick="goNews()">📰 Tin tức</li>
-            <li onclick="goGuide()">❓ Hướng dẫn</li>
+            <li onclick="goClass()">📚 Lớp</li>
+            <li onclick="goSchedule()">📅 Lịch</li>
         </ul>
     </div>
 
     <!-- MAIN -->
     <div class="main">
 
-        <h2>📚 Tạo câu hỏi trắc nghiệm</h2>
+        <h2>📚 Tạo câu hỏi</h2>
 
         <div class="form-box">
-            <input id="question" placeholder="Câu hỏi">
 
-            <input id="a" placeholder="Đáp án A">
-            <input id="b" placeholder="Đáp án B">
-            <input id="c" placeholder="Đáp án C">
-            <input id="d" placeholder="Đáp án D">
+            <textarea id="question" placeholder="Nhập câu hỏi..."></textarea>
+
+            <div class="answers">
+                <input id="a" placeholder="Đáp án A">
+                <input id="b" placeholder="Đáp án B">
+                <input id="c" placeholder="Đáp án C">
+                <input id="d" placeholder="Đáp án D">
+            </div>
 
             <select id="correct">
                 <option value="A">Đáp án đúng A</option>
@@ -46,15 +47,16 @@
                 <option value="D">Đáp án đúng D</option>
             </select>
 
-            <button onclick="add()">➕ Thêm câu hỏi</button>
-        </div>
+            <div class="btn-group">
+                <button onclick="add()">➕ Thêm</button>
+                <button onclick="generateAI()">🤖 AI tạo nhanh</button>
+            </div>
 
-        <hr>
+        </div>
 
         <div id="list"></div>
 
     </div>
-
 </div>
 
 <script src="/js/question.js"></script>

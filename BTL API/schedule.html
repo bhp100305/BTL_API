@@ -10,38 +10,68 @@
 
 <div class="container">
 
+<!-- SIDEBAR (giữ nguyên của bạn) -->
 <div class="sidebar">
-    <h2 class="logo">EDUSO</h2>
+    <div class="logo">
+        <img src="/images/gtvt.png">
+        <div class="school-name">EDUSO</div>
+    </div>
+
     <ul>
         <li onclick="goHome()">🏠 Trang chủ</li>
         <li onclick="goClass()">📚 Lớp của tôi</li>
+        <li onclick="goManage()">📁 Quản lý</li>
+        <li onclick="goMaterial()">📖 Học liệu</li>
         <li class="active">📅 Lịch dạy</li>
+        <li onclick="goExamMenu()">📝 Khảo thí</li>
+        <li onclick="goNews()">📰 Tin tức</li>
+        <li onclick="goGuide()">❓ Hướng dẫn</li>
     </ul>
 </div>
 
+<!-- MAIN -->
 <div class="main">
 
 <h2>📅 Lịch dạy tuần</h2>
 
-<div class="calendar">
+<button class="btn-add" onclick="openAdd()">+ Thêm lịch</button>
 
-    <div class="header">
-        <div>Thứ 2</div>
-        <div>Thứ 3</div>
-        <div>Thứ 4</div>
-        <div>Thứ 5</div>
-        <div>Thứ 6</div>
-        <div>Thứ 7</div>
-        <div>CN</div>
+<div id="calendar"></div>
+
+</div>
+</div>
+
+<!-- POPUP -->
+<div id="popup" class="popup hidden">
+    <div class="popup-box">
+
+        <h3 id="title">Thêm lịch</h3>
+
+        <select id="class_id"></select>
+        <input id="room" placeholder="Phòng">
+        <input id="start" placeholder="Giờ bắt đầu (08:00)">
+        <input id="end" placeholder="Giờ kết thúc (10:00)">
+
+        <select id="day">
+            <option value="2">Thứ 2</option>
+            <option value="3">Thứ 3</option>
+            <option value="4">Thứ 4</option>
+            <option value="5">Thứ 5</option>
+            <option value="6">Thứ 6</option>
+            <option value="7">Thứ 7</option>
+            <option value="8">CN</option>
+        </select>
+
+        <div class="popup-actions">
+            <button class="btn-save" onclick="save()">Lưu</button>
+            <button class="btn-cancel" onclick="closePopup()">Hủy</button>
+        </div>
+
     </div>
-
-    <div class="body" id="calendarBody"></div>
-
-</div>
-
-</div>
 </div>
 
 <script src="/js/schedule.js"></script>
+<script src="/js/admin.js"></script>
+
 </body>
 </html>

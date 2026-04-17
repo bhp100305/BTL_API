@@ -20,6 +20,18 @@ function load(){
                         onclick="goExam(${c.id}, 'final')">
                         Cuối kỳ
                     </button>
+
+                    <br><br>
+
+                    <button class="btn edit"
+                        onclick="editClass(${c.id}, '${c.name}')">
+                        ✏️ Sửa
+                    </button>
+
+                    <button class="btn delete"
+                        onclick="deleteClass(${c.id})">
+                        🗑️ Xóa
+                    </button>
                 </div>
             `;
         });
@@ -27,7 +39,46 @@ function load(){
         document.getElementById("list").innerHTML = html;
     });
 }
+function deleteClass(id){
+    if(confirm("Bạn có chắc muốn xóa lớp này?")){
+        fetch(API + "/api/classes/" + id, {
+            method: "DELETE"
+        })
+        .then(res => res.json())
+        .then(data => {
+            alert("Xóa thành công!");
+            load(); // reload lại danh sách
+        })
+        .catch(err => {
+            alert("Lỗi khi xóa!");
+            console.error(err);
+        });
+    }
+}
+function editClass(id, oldName){
+    let newName = prompt("Nhập tên mới:", oldName);
 
+    if(newName && newName.trim() !== ""){
+        fetch(API + "/api/classes/" + id, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name: newName
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            alert("Cập nhật thành công!");
+            load();
+        })
+        .catch(err => {
+            alert("Lỗi khi cập nhật!");
+            console.error(err);
+        });
+    }
+}
 function goExam(class_id, type){
     window.location.href =
         `chooseGKCK.html?class_id=${class_id}&type=${type}`;

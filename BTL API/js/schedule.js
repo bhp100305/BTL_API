@@ -1,92 +1,188 @@
 const API = "http://localhost:5000";
 const teacher_id = 1;
 
-function load(){
+let editingId = null;
 
+function formatTime(t){
+    return t.substring(0,5);
+}
+
+/* LOAD LỊCH */
+function load(){
     fetch(API + "/api/schedule/" + teacher_id)
     .then(res => res.json())
     .then(data => {
 
-        console.log("DATA:", data); // 👈 DEBUG
-
         let days = [[],[],[],[],[],[],[]];
 
-        data.forEach(s => {
+        data.forEach(s=>{
             let d = parseInt(s.day) - 2;
-
-            if(!isNaN(d) && d >= 0 && d < 7){
+            if(d >= 0 && d < 7){
                 days[d].push(s);
             }
         });
 
-        let dayNames = ["Thứ 2","Thứ 3","Thứ 4","Thứ 5","Thứ 6","Thứ 7","CN"];
+        let names = ["Thứ 2","Thứ 3","Thứ 4","Thứ 5","Thứ 6","Thứ 7","CN"];
 
         let html = `<div class="calendar">`;
 
         for(let i=0;i<7;i++){
-
-            html += `
-            <div class="day">
-                <div class="title">${dayNames[i]}</div>
-            `;
+            html += `<div class="day"><div class="title">${names[i]}</div>`;
 
             if(days[i].length === 0){
-                html += `<div class="empty">Không có lịch</div>`;
+                html += `<div class="empty">Không có</div>`;
             }
 
             days[i].forEach(s=>{
                 html += `
-                <div class="card"
-                    onclick="showDetail('${s.class}','${s.subject}','${s.start}','${s.end}','${s.room}')">
-                    
+                <div class="card">
                     <b>${s.subject}</b><br>
-                    ⏰ ${s.start} - ${s.end}<br>
+                    ⏰ ${formatTime(s.start)} - ${formatTime(s.end)}<br>
                     🏫 ${s.room}
-                </div>
-                `;
+
+                    <div class="card-actions">
+                        <button class="edit"
+                            onclick="edit(${s.id}, '${s.subject}','${s.room}','${s.start}','${s.end}','${s.day}')">
+                            Sửa
+                        </button>
+
+                        <button class="delete"
+                            onclick="remove(${s.id})">
+                            Xóa
+                        </button>
+                    </div>
+                </div>`;
             });
 
             html += `</div>`;
         }
 
         html += `</div>`;
+        document.getElementById("calendar").innerHTML = html;
+    });
+}
 
-        document.getElementById("calendarBody").innerHTML = html;
+/* LOAD CLASS */
+function loadClasses(){
+    fetch(API + "/api/classes")
+    .then(res => res.json())
+    .then(data=>{
+        let html = "";
 
+        data.forEach(c=>{
+            html += `<option value="${c.id}">${c.name}</option>`;
+        });
+
+        document.getElementById("class_id").innerHTML = html;
+    });
+}
+
+/* OPEN */
+function openAdd(){
+    editingId = null;
+    document.getElementById("popup").classList.remove("hidden");
+}
+
+/* CLOSE */
+function closePopup(){
+    document.getElementById("popup").classList.add("hidden");
+}
+
+/* SAVE */
+function save(){
+
+    let class_id = document.getElementById("class_id").value;
+    let room = document.getElementById("room").value;
+    let start = document.getElementById("start").value;
+    let end = document.getElementById("end").value;
+    let day = document.getElementById("day").value;
+
+    if(!class_id || !room || !start || !end){
+        alert("Nhập đầy đủ!");
+        return;
+    }
+
+    let data = {
+        class_id: parseInt(class_id),   // 👈 QUAN TRỌNG
+        subject: document.getElementById("class_id").selectedOptions[0].text, // lấy tên lớp làm môn
+        room: room,
+        start: start,
+        end: end,
+        day: parseInt(day),
+        teacher_id: teacher_id
+    };
+
+    fetch(API + "/api/schedule",{
+        method: "POST",
+        headers:{"Content-Type":"application/json"},
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(res=>{
+        console.log(res);
+        alert("Lưu thành công");
+        closePopup();
+        load();
     })
     .catch(err=>{
         console.error(err);
+        alert("Lỗi!");
     });
 }
 
+/* EDIT */
+function edit(id, sub, r, st, en, d){
+    editingId = id;
 
-// 👇 POPUP
-function showDetail(cls, sub, start, end, room){
-    alert(
-        "📘 Lớp: " + cls +
-        "\n📖 Môn: " + sub +
-        "\n⏰ " + start + " - " + end +
-        "\n🏫 Phòng: " + room
-    );
+    document.getElementById("room").value = r;
+    document.getElementById("start").value = st;
+    document.getElementById("end").value = en;
+    document.getElementById("day").value = d;
+
+    openAdd();
 }
-function addSchedule(){
-    fetch(API + "/api/schedule", {
-        method: "POST",
-        headers: {"Content-Type":"application/json"},
-        body: JSON.stringify({
-            class_id: 1,
-            subject: "Python",
-            teacher_id: 1,
-            day: 5,
-            start: "10:00",
-            end: "12:00",
-            room: "C301"
-        })
-    })
-    .then(res=>res.json())
-    .then(()=>{
-        alert("Thêm thành công");
-        load(); // 👈 QUAN TRỌNG
-    });
+
+/* DELETE */
+function remove(id){
+    if(confirm("Xóa lịch?")){
+        fetch(API + "/api/schedule/" + id,{
+            method:"DELETE"
+        }).then(()=> load());
+    }
 }
+// ===== SIDEBAR NAV =====
+
+function goHome(){
+    window.location.href = "admin.html";
+}
+
+function goClass(){
+    window.location.href = "class.html";
+}
+
+function goManage(){
+    window.location.href = "manage.html";
+}
+
+function goMaterial(){
+    window.location.href = "material.html";
+}
+
+function goSchedule(){
+    window.location.href = "schedule.html";
+}
+
+function goExamMenu(){
+    window.location.href = "admin.html"; // trang hiện tại (khảo thí)
+}
+
+function goNews(){
+    window.location.href = "news.html";
+}
+
+function goGuide(){
+    window.location.href = "guide.html";
+}
+/* INIT */
 load();
+loadClasses();
