@@ -5,6 +5,7 @@
     <title>Tạo câu hỏi</title>
     <link rel="stylesheet" href="/css/admin.css">
     <link rel="stylesheet" href="/css/question.css">
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.0/package/dist/xlsx.full.min.js"></script>
 </head>
 <body>
 
@@ -19,8 +20,13 @@
 
         <ul>
             <li onclick="goHome()">🏠 Trang chủ</li>
-            <li onclick="goClass()">📚 Lớp</li>
-            <li onclick="goSchedule()">📅 Lịch</li>
+            <li onclick="goClass()">📚 Lớp của tôi</li>
+            <li onclick="goManage()">📁 Quản lý</li>
+            <li onclick="goMaterial()">📖 Học liệu</li>
+            <li onclick="goSchedule()">📅 Lịch dạy</li>
+            <li onclick="goExamMenu()">📝 Khảo thí</li>
+            <li onclick="goNews()">📰 Tin tức</li>
+            <li onclick="goGuide()">❓ Hướng dẫn</li>
         </ul>
     </div>
 
@@ -50,6 +56,10 @@
             <div class="btn-group">
                 <button onclick="add()">➕ Thêm</button>
                 <button onclick="generateAI()">🤖 AI tạo nhanh</button>
+                <input type="file" id="excel-file-main" accept=".xlsx, .xls" style="display: none;" onchange="importExcel(this)">
+                <button onclick="document.getElementById('excel-file-main').click()" style="background-color: #1D6F42;">
+                    Excel Tải lên
+                </button>
             </div>
 
         </div>
@@ -58,7 +68,31 @@
 
     </div>
 </div>
+<div id="excelModal" class="modal" style="display:none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
+    <div class="modal-content" style="background-color: #fff; margin: 5% auto; padding: 25px; border-radius: 12px; width: 50%; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+        <span onclick="closeExcelModal()" style="float: right; cursor: pointer; font-size: 24px;">&times;</span>
+        <h2 style="color: #2e7d32; margin-top: 0;">📁 Nhập câu hỏi từ Excel theo tỷ lệ</h2>
+        
+        <div style="margin: 20px 0;">
+            <label><strong>Bước 1: Chọn file Excel của bạn</strong></label><br>
+            <input type="file" id="excel-file-modal" onchange="handleFileSelect(this)" accept=".xlsx, .xls" style="margin-top: 10px;">
+        </div>
 
+        <div id="config-section" style="display:none;">
+            <hr>
+            <label><strong>Bước 2: Cấu hình tỷ lệ lấy câu hỏi</strong></label>
+            <p style="font-size: 0.9em; color: #666;">(Tổng tỷ lệ phải bằng 100%)</p>
+            
+            <div id="sheet-list" style="max-height: 250px; overflow-y: auto; background: #f8f9fa; padding: 10px; border-radius: 8px;">
+                </div>
+
+            <div style="margin-top: 20px; text-align: right;">
+                <span style="margin-right: 15px;">Tổng câu cho đề: <input type="number" id="total-q" value="10" style="width: 50px;"></span>
+                <button onclick="processMixImport()" style="background: #2e7d32; color: white; border: none; padding: 10px 25px; border-radius: 6px; cursor: pointer; font-weight: bold;">🚀 Bắt đầu Import</button>
+            </div>
+        </div>
+    </div>
+</div>
 <script src="/js/question.js"></script>
 <script src="/js/admin.js"></script>
 </body>

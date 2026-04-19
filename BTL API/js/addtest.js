@@ -20,17 +20,26 @@ function create(){
     let name = document.getElementById("name").value;
     let class_id = document.getElementById("class_id").value;
     let type = document.getElementById("type").value;
-
+    let question_count = document.getElementById("question_count").value; // Lấy thêm số câu hỏi
+    if (!name || !question_count) {
+        alert("Vui lòng nhập đầy đủ tên bài kiểm tra và số lượng câu hỏi!");
+        return;
+    }
     fetch(API + "/api/exams/full",{
         method:"POST",
         headers:{"Content-Type":"application/json"},
-        body: JSON.stringify({name, class_id, type})
+        body: JSON.stringify({ 
+            name: name, 
+            class_id: class_id, 
+            type: type, 
+            question_count: parseInt(question_count) // Gửi kèm số câu hỏi (ép kiểu số nguyên)
+        })
     })
     .then(res=>res.json())
     .then(data=>{
         if(data.exam_id){
             // 👉 CHUYỂN TRANG
-            window.location.href = "question.html?exam_id=" + data.exam_id;
+            window.location.href = "question.html?exam_id=" + data.exam_id+ "&total=" + question_count;
         }else{
             alert("Lỗi tạo bài");
         }

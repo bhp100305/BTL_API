@@ -1,4 +1,4 @@
-﻿CREATE DATABASE QuizDB
+﻿create DATABASE QuizDB
 GO
 USE QuizDB
 GO
