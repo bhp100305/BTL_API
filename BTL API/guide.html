@@ -1,83 +1,91 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-<meta charset="UTF-8">
-<title>Hướng dẫn nâng cao</title>
 
-<link rel="stylesheet" href="/css/admin.css">
-<link rel="stylesheet" href="/css/guide.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Hướng dẫn nâng cao</title>
+
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/guide.css">
 
 </head>
+
 <body>
 
-<div class="container">
+    <div class="container">
 
-<!-- SIDEBAR -->
-<div class="sidebar">
-    <div class="logo">
-            <img src="/images/gtvt.png" alt="Logo">
-            <div class="school-name">EDUSO</div>
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="images/gtvt.png" alt="logo">
+                <h2>EDUSO</h2>
+            </div>
+
+            <ul>
+                <li onclick="goHome()">🏠 Trang chủ</li>
+                <li onclick="goClass()">📚 Lớp của tôi</li>
+                <li onclick="goManage()">📁 Quản lý</li>
+                <li onclick="goMaterial()">📖 Học liệu</li>
+                <li onclick="goSchedule()">📅 Lịch dạy</li>
+                <li onclick="goExamMenu()">📝 Khảo thí</li>
+                <li onclick="goNews()">📰 Tin tức</li>
+                <li onclick="goGuide()">❓ Hướng dẫn</li>
+            </ul>
+        </aside>
+
+        <!-- MAIN -->
+        <div class="main">
+
+            <h2>HƯỚNG DẪN SỬ DỤNG HỆ THỐNG</h2>
+            <!-- CARD UI -->
+            <div class="guide-grid">
+
+                <div class="guide-card blue" onclick="loadGuide(0)">
+                    <div class="icon">🚀</div>
+                    <h3>Bắt đầu</h3>
+                    <p>Làm quen hệ thống</p>
+                </div>
+
+                <div class="guide-card green" onclick="loadGuide(1)">
+                    <div class="icon">📝</div>
+                    <h3>Tạo đề thi</h3>
+                    <p>Hướng dẫn tạo bài thi</p>
+                </div>
+
+                <div class="guide-card orange" onclick="loadGuide(2)">
+                    <div class="icon">📊</div>
+                    <h3>Kết quả</h3>
+                    <p>Xem kết quả thi của HS/SV</p>
+                </div>
+
+            </div>
+
+            <!-- FAQ -->
+            <h3>❓ FAQ</h3>
+            <div id="faq"></div>
+
         </div>
-    <ul>
-        <li onclick="goHome()">🏠 Trang chủ</li>
-        <li onclick="goClass()">📚 Lớp của tôi</li>
-        <li onclick="goManage()">📁 Quản lý</li>
-        <li onclick="goMaterial()">📖 Học liệu</li>
-        <li onclick="goSchedule()">📅 Lịch dạy</li>
-        <li onclick="goExamMenu()">📝 Khảo thí</li>
-        <li onclick="goNews()">📰 Tin tức</li>
-        <li class="active">❓ Hướng dẫn</li>
-    </ul>
-</div>
+    </div>
 
-<!-- MAIN -->
-<div class="main">
+    <!-- MODAL -->
+    <div id="modal" class="modal" style="display:none">
+        <div class="modal-box">
+            <h2 id="modalTitle"></h2>
 
-<h2>🚀 Hướng dẫn sử dụng hệ thống</h2>
+            <iframe id="modalVideo" width="100%" height="250" allowfullscreen></iframe>
 
-<!-- SEARCH -->
-<input type="text" id="search" placeholder="🔍 Tìm hướng dẫn...">
+            <div id="steps"></div>
 
-<div class="guide-container">
+            <div class="controls">
+                <button onclick="prev()">⬅ Back</button>
+                <button onclick="next()">Next ➡</button>
+            </div>
 
-<!-- MENU TRÁI -->
-<div class="guide-menu">
-    <div onclick="loadGuide(0)">Bắt đầu</div>
-    <div onclick="loadGuide(1)">Làm bài</div>
-    <div onclick="loadGuide(2)">Xem điểm</div>
-</div>
+            <button onclick="closeModal()">Đóng</button>
+        </div>
+    </div>
 
-<!-- CONTENT -->
-<div class="guide-content">
-
-<h3 id="title"></h3>
-
-<!-- VIDEO -->
-<div class="video">
-<iframe id="video" width="100%" height="250"></iframe>
-</div>
-
-<!-- STEP -->
-<div id="steps"></div>
-
-<!-- CONTROL -->
-<div class="controls">
-    <button onclick="prev()">⬅ Back</button>
-    <button onclick="next()">Next ➡</button>
-</div>
-
-</div>
-
-</div>
-
-<!-- FAQ -->
-<h3>❓ FAQ</h3>
-<div id="faq"></div>
-
-</div>
-</div>
-
-<script src="/js/guide.js"></script>
+    <script src="/js/guide.js"></script>
 
 </body>
+
 </html>
