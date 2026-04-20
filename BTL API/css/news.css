@@ -1,223 +1,291 @@
 /* ===== RESET ===== */
-*{
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    margin:0;
-    padding:0;
     font-family: Arial, sans-serif;
 }
 
-/* ===== MAIN ===== */
-.main{
-    padding:20px;
-    background:#f5f7fb;
-    min-height:100vh;
+body {
+    background: #f1f5f9;
+}
 
-    /* 👇 giới hạn chiều rộng cho đẹp */
-    max-width:1200px;
-    margin:auto;
+/* ===== LAYOUT ===== */
+.container {
+    display: flex;
+    min-height: 100vh;
+    /* ✅ fix lỗi scroll */
+}
+
+/* ===== SIDEBAR (GIỮ NGUYÊN) ===== */
+.sidebar {
+    width: 220px;
+    background: #fff;
+    border-right: 1px solid #ddd;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    position: sticky;
+    top: 0;
+
+    height: 100vh;
+}
+
+.sidebar ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex: 1;
+}
+
+.sidebar li {
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.sidebar li:hover {
+    background: #e2e8f0;
+}
+
+.sidebar .active {
+    background: #fee2e2;
+    color: red;
+    font-weight: bold;
+}
+
+.logo {
+    text-align: center;
+}
+
+.logo img {
+    width: 150px;
+}
+
+/* ===== MAIN (ĐÃ FIX) ===== */
+.main {
+    flex: 1;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* ⭐ căn giữa ngang */
 }
 
 /* ===== TOP BAR ===== */
-.top-bar{
-    display:flex;
-    gap:10px;
-    margin-bottom:20px;
+.top-bar {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    align-items: center;
+}
+
+.top-bar input {
+    flex: 1;
+    /* ✅ không bị lệch */
 }
 
 .top-bar input,
-.top-bar select{
-    padding:10px 12px;
-    border-radius:10px;
-    border:1px solid #ccc;
-    outline:none;
-    transition:0.2s;
+.top-bar select {
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: 0.2s;
+    background: white;
+}
 
-}
-.top-bar input{
-    width: 700px;;
-}
 .top-bar input:focus,
-.top-bar select:focus{
-    border-color:#4a90e2;
-    box-shadow:0 0 5px rgba(74,144,226,0.3);
+.top-bar select:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
 }
 
 /* ===== SLIDER ===== */
-.slider{
-    height:230px;
-    border-radius:15px;
-    overflow:hidden;
-    margin-bottom:25px;
-    position:relative;
+.slider {
+    width: 100%;
+    /* ✅ full ngang */
+    height: 250px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 30px;
 }
 
-.slide{
-    width:100%;
-    height:100%;
-    background-size:cover;
-    background-position:center;
-    display:flex;
-    align-items:flex-end;
+.slide {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
 }
 
-.overlay{
-    background:linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-    width:100%;
-    padding:20px;
-    color:white;
+.overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
+    width: 100%;
+    padding: 20px;
+    color: white;
 }
 
-.overlay h2{
-    margin-bottom:5px;
+.overlay h2 {
+    font-size: 20px;
 }
 
-/* ===== GRID CHUẨN 3 CỘT ===== */
-.news-grid{
-    display:grid;
-    grid-template-columns: repeat(3, 1fr); /* 🔥 LUÔN 3 CỘT */
-    gap:20px;
+/* ===== GRID ===== */
+.news-grid {
+    width: 100%;
+    /* ✅ fix co layout */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
 }
 
 /* ===== CARD ===== */
-.news-card{
-    background:white;
-    border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-    transition:0.3s;
-    display:flex;
-    flex-direction:column;
+.news-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
-.news-card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+.news-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
 /* ===== IMAGE ===== */
-.news-img{
-    width:100%;
-    height:160px;
-    background-size:cover;
-    background-position:center;
+.news-img {
+    width: 100%;
+    height: 170px;
+    background-size: cover;
+    background-position: center;
 }
 
 /* ===== CONTENT ===== */
-.news-content{
-    padding:15px;
-    display:flex;
-    flex-direction:column;
-    gap:8px;
+.news-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
 }
 
-/* ===== TITLE ===== */
-.news-content h4{
-    font-size:16px;
-    line-height:1.4;
+.news-content h4 {
+    font-size: 16px;
+    line-height: 1.4;
 
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-
-    display:-webkit-box;
-    -webkit-line-clamp:2;
-    -webkit-box-orient:vertical;
-    overflow:hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
-/* ===== TEXT ===== */
-.news-content p{
-    font-size:14px;
-    color:#555;
+.news-content p {
+    font-size: 14px;
+    color: #555;
 
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-
-    display:-webkit-box;
-    -webkit-line-clamp:3;
-    -webkit-box-orient:vertical;
-    overflow:hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
-/* ===== TIME ===== */
-.news-content small{
-    color:#999;
+.news-content small {
+    margin-top: auto;
+    color: #999;
+    font-size: 12px;
 }
 
 /* ===== TAG ===== */
-.tag{
-    display:inline-block;
-    padding:4px 10px;
-    border-radius:20px;
-    font-size:12px;
-    width:fit-content;
-    font-weight:600;
+.tag {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
 }
 
-.tag.Java{ background:#e3f2fd; color:#1976d2; }
-.tag.SQL{ background:#e8f5e9; color:#2e7d32; }
-.tag.Tips{ background:#fff3e0; color:#ef6c00; }
+.tag.Java {
+    background: #e3f2fd;
+    color: #1976d2;
+}
+
+.tag.SQL {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.tag.Tips {
+    background: #fff3e0;
+    color: #ef6c00;
+}
 
 /* ===== MODAL ===== */
-.modal{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.5);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    z-index:999;
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
 }
 
-.modal-box{
-    background:white;
-    padding:20px;
-    border-radius:15px;
-    width:500px;
-    max-width:90%;
-    animation:fadeIn 0.3s ease;
+.modal-box {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    width: 500px;
+    max-width: 90%;
+    animation: fadeIn 0.3s ease;
 }
 
-@keyframes fadeIn{
-    from{
-        opacity:0;
-        transform:scale(0.9);
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
     }
-    to{
-        opacity:1;
-        transform:scale(1);
+
+    to {
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
 /* ===== RESPONSIVE ===== */
-
-/* Tablet */
-@media (max-width:1024px){
-    .news-grid{
-        grid-template-columns: repeat(2, 1fr);
+@media (max-width:1024px) {
+    .slider {
+        height: 200px;
     }
 }
 
-/* Mobile */
-@media (max-width:600px){
-    .news-grid{
-        grid-template-columns: 1fr;
+@media (max-width:600px) {
+
+    .top-bar {
+        flex-direction: column;
+        align-items: stretch;
     }
 
-    .top-bar{
-        flex-direction:column;
-    }
-
-    .slider{
-        height:180px;
+    .slider {
+        height: 180px;
     }
 }
 
-/* Mobile nhỏ */
-@media (max-width:400px){
-    .slider{
-        height:150px;
+@media (max-width:400px) {
+    .slider {
+        height: 150px;
     }
 }
