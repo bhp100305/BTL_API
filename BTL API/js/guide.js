@@ -1,57 +1,62 @@
+// DATA
 let guides = [
-{
-    title:"Bắt đầu",
-    video:"https://www.youtube.com/embed/dQw4w9WgXcQ",
-    steps:[
-        "Đăng nhập hệ thống",
-        "Chọn lớp học",
-        "Xem dashboard"
-    ]
-},
-{
-    title:"Làm bài",
-    video:"https://www.youtube.com/embed/dQw4w9WgXcQ",
-    steps:[
-        "Chọn bài kiểm tra",
-        "Chọn đáp án",
-        "Nộp bài"
-    ]
-},
-{
-    title:"Xem điểm",
-    video:"https://www.youtube.com/embed/dQw4w9WgXcQ",
-    steps:[
-        "Vào mục kết quả",
-        "Xem điểm",
-        "Phân tích điểm yếu"
-    ]
-}
+    {
+        title: "Bắt đầu",
+        video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        steps: [
+            "Đăng nhập hệ thống",
+            "Tạo lớp học",
+            "Xem thống kê"
+        ]
+    },
+    {
+        title: "Làm bài",
+        video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        steps: [
+            "Chọn bài kiểm tra",
+            "Tạo câu hỏi, đáp án",
+            "Sửa câu hỏi, đáp án"
+        ]
+    },
+    {
+        title: "Xem điểm",
+        video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        steps: [
+            "Vào mục kết quả",
+            "Xem điểm",
+            "Phân tích điểm yếu"
+        ]
+    }
 ];
 
 let currentGuide = 0;
 let currentStep = 0;
 
 /* LOAD GUIDE */
-function loadGuide(index){
+function loadGuide(index) {
     currentGuide = index;
     currentStep = 0;
 
     let g = guides[index];
 
-    document.getElementById("title").innerText = g.title;
-    document.getElementById("video").src = g.video;
+    // FIX ID đúng với HTML
+    document.getElementById("modalTitle").innerText = g.title;
+    document.getElementById("modalVideo").src = g.video;
+
+    // MỞ MODAL
+    document.getElementById("modal").style.display = "flex";
 
     renderSteps();
 }
 
 /* RENDER STEP */
-function renderSteps(){
+function renderSteps() {
     let g = guides[currentGuide];
     let html = "";
 
-    g.steps.forEach((s,i)=>{
-        html += `<div class="step ${i==currentStep?'active':''}">
-            ${i+1}. ${s}
+    g.steps.forEach((s, i) => {
+        html += `<div class="step ${i === currentStep ? 'active' : ''}">
+            ${i + 1}. ${s}
         </div>`;
     });
 
@@ -59,31 +64,36 @@ function renderSteps(){
 }
 
 /* NEXT */
-function next(){
+function next() {
     let g = guides[currentGuide];
-    if(currentStep < g.steps.length -1){
+    if (currentStep < g.steps.length - 1) {
         currentStep++;
         renderSteps();
     }
 }
 
 /* BACK */
-function prev(){
-    if(currentStep > 0){
+function prev() {
+    if (currentStep > 0) {
         currentStep--;
         renderSteps();
     }
 }
 
+/* CLOSE MODAL */
+function closeModal() {
+    document.getElementById("modal").style.display = "none";
+}
+
 /* FAQ */
 let faqData = [
-    {q:"Làm sao đăng nhập?", a:"Dùng tài khoản được cấp"},
-    {q:"Quên mật khẩu?", a:"Liên hệ admin"},
-    {q:"Có làm lại được không?", a:"Có trong phần ôn tập"}
+    { q: "Làm sao đăng nhập?", a: "Dùng tài khoản được cấp." },
+    { q: "Quên mật khẩu?", a: "Xem trong database." },
+    { q: "Có đổi được mật khẩu không?", a: "Có, nhưng phải được sự cho phép của các bên liên quan." }
 ];
 
 let faqHTML = "";
-faqData.forEach(f=>{
+faqData.forEach(f => {
     faqHTML += `
     <div class="faq-item" onclick="toggleFAQ(this)">
         <b>${f.q}</b>
@@ -93,21 +103,27 @@ faqData.forEach(f=>{
 
 document.getElementById("faq").innerHTML = faqHTML;
 
-function toggleFAQ(el){
+function toggleFAQ(el) {
     let c = el.querySelector(".faq-content");
-    c.style.display = c.style.display=="block"?"none":"block";
+    c.style.display = c.style.display === "block" ? "none" : "block";
 }
 
-/* SEARCH */
-document.getElementById("search").oninput = function(){
-    let value = this.value.toLowerCase();
+/* SEARCH (chỉ chạy nếu có input) */
+let searchInput = document.getElementById("search");
+if (searchInput) {
+    searchInput.oninput = function () {
+        let value = this.value.toLowerCase();
 
-    let filtered = guides.filter(g => g.title.toLowerCase().includes(value));
+        let filtered = guides.filter(g =>
+            g.title.toLowerCase().includes(value)
+        );
 
-    if(filtered.length > 0){
-        loadGuide(guides.indexOf(filtered[0]));
-    }
-};
+        if (filtered.length > 0) {
+            loadGuide(guides.indexOf(filtered[0]));
+        }
+    };
+}
 
 /* INIT */
-loadGuide(0);
+// KHÔNG auto mở modal nữa để tránh khó chịu
+// loadGuide(0);
