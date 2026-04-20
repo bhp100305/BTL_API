@@ -1,83 +1,88 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-<meta charset="UTF-8">
-<title>Hướng dẫn nâng cao</title>
 
-<link rel="stylesheet" href="/css/admin.css">
-<link rel="stylesheet" href="/css/guide.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Hướng dẫn nâng cao</title>
+
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/guide.css">
 
 </head>
+
 <body>
 
-<div class="container">
+    <div class="container">
 
-<!-- SIDEBAR -->
-<div class="sidebar">
-    <div class="logo">
-            <img src="/images/gtvt.png" alt="Logo">
-            <div class="school-name">EDUSO</div>
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <h2 class="logo">EDUSO</h2>
+            <ul>
+                <li onclick="goHome()">🏠 Trang chủ</li>
+                <li onclick="goClass()">📚 Lớp của tôi</li>
+                <li onclick="goManage()">📁 Quản lý</li>
+                <li onclick="goMaterial()">📖 Học liệu</li>
+                <li onclick="goSchedule()">📅 Lịch dạy</li>
+                <li onclick="goExamMenu()">📝 Khảo thí</li>
+                <li onclick="goNews()">📰 Tin tức</li>
+                <li class="active">❓ Hướng dẫn</li>
+            </ul>
         </div>
-    <ul>
-        <li onclick="goHome()">🏠 Trang chủ</li>
-        <li onclick="goClass()">📚 Lớp của tôi</li>
-        <li onclick="goManage()">📁 Quản lý</li>
-        <li onclick="goMaterial()">📖 Học liệu</li>
-        <li onclick="goSchedule()">📅 Lịch dạy</li>
-        <li onclick="goExamMenu()">📝 Khảo thí</li>
-        <li onclick="goNews()">📰 Tin tức</li>
-        <li class="active">❓ Hướng dẫn</li>
-    </ul>
-</div>
 
-<!-- MAIN -->
-<div class="main">
+        <!-- MAIN -->
+        <div class="main">
 
-<h2>🚀 Hướng dẫn sử dụng hệ thống</h2>
+            <h2>HƯỚNG DẪN SỬ DỤNG HỆ THỐNG</h2>
+            <!-- CARD UI -->
+            <div class="guide-grid">
 
-<!-- SEARCH -->
-<input type="text" id="search" placeholder="🔍 Tìm hướng dẫn...">
+                <div class="guide-card blue" onclick="loadGuide(0)">
+                    <div class="icon">🚀</div>
+                    <h3>Bắt đầu</h3>
+                    <p>Làm quen hệ thống</p>
+                </div>
 
-<div class="guide-container">
+                <div class="guide-card green" onclick="loadGuide(1)">
+                    <div class="icon">📝</div>
+                    <h3>Tạo đề thi</h3>
+                    <p>Hướng dẫn tạo bài thi</p>
+                </div>
 
-<!-- MENU TRÁI -->
-<div class="guide-menu">
-    <div onclick="loadGuide(0)">Bắt đầu</div>
-    <div onclick="loadGuide(1)">Làm bài</div>
-    <div onclick="loadGuide(2)">Xem điểm</div>
-</div>
+                <div class="guide-card orange" onclick="loadGuide(2)">
+                    <div class="icon">📊</div>
+                    <h3>Kết quả</h3>
+                    <p>Xem kết quả thi của HS/SV</p>
+                </div>
 
-<!-- CONTENT -->
-<div class="guide-content">
+            </div>
 
-<h3 id="title"></h3>
+            <!-- FAQ -->
+            <h3>❓ FAQ</h3>
+            <div id="faq"></div>
 
-<!-- VIDEO -->
-<div class="video">
-<iframe id="video" width="100%" height="250"></iframe>
-</div>
+        </div>
+    </div>
 
-<!-- STEP -->
-<div id="steps"></div>
+    <!-- MODAL -->
+    <div id="modal" class="modal" style="display:none">
+        <div class="modal-box">
+            <h2 id="modalTitle"></h2>
 
-<!-- CONTROL -->
-<div class="controls">
-    <button onclick="prev()">⬅ Back</button>
-    <button onclick="next()">Next ➡</button>
-</div>
+            <iframe id="modalVideo" width="100%" height="250" allowfullscreen></iframe>
 
-</div>
+            <div id="steps"></div>
 
-</div>
+            <div class="controls">
+                <button onclick="prev()">⬅ Back</button>
+                <button onclick="next()">Next ➡</button>
+            </div>
 
-<!-- FAQ -->
-<h3>❓ FAQ</h3>
-<div id="faq"></div>
+            <button onclick="closeModal()">Đóng</button>
+        </div>
+    </div>
 
-</div>
-</div>
-
-<script src="/js/guide.js"></script>
+    <script src="/js/guide.js"></script>
 
 </body>
+
 </html>
