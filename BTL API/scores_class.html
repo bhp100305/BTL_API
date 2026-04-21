@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bảng điểm lớp</title>
+    <link rel="stylesheet" href="/css/socore.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>📊 Bảng điểm lớp</h2>
+
+    <!-- ACTION -->
+    
+
+    <!-- TABLE -->
+    <table>
+        <thead>
+            <tr>
+                <th>Mã SV</th>
+                <th>Họ tên</th>
+
+                <th>B1</th>
+                <th>B2</th>
+                <th>B3</th>
+                <th>B4</th>
+                <th>B5</th>
+                <th>B6</th>
+                <th>B7</th>
+                <th>B8</th>
+                <th>B9</th>
+                <th>B10</th>
+
+                <th>Giữa kỳ</th>
+                <th>Cuối kỳ</th>
+                <th>Xóa</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+    </table>
+</div>
+
+<!-- POPUP -->
+<div id="popup" class="popup hidden">
+    <div class="popup-box">
+        <h3>Thêm sinh viên</h3>
+
+        <input id="code" placeholder="Mã SV">
+        <input id="name" placeholder="Họ tên">
+
+        <button onclick="add()">Thêm</button>
+        <button onclick="closePopup()">Hủy</button>
+    </div>
+</div>
+
+<script src="/js/scores_class.js"></script>
+</body>
+</html>

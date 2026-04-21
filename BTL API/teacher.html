@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>EDUSO - Quản lý</title>
+
+    <link rel="stylesheet" href="/css/teacher.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="images/gtvt.png">
+            <h2>EDUSO</h2>
+        </div>
+
+        <ul>
+            <li onclick="goHome()">🏠 Trang chủ</li>
+            <li onclick="goClass()">📚 Lớp của tôi</li>
+            <li onclick="goSchedule()">📅 Lịch dạy</li>
+            <li onclick="goNews()">📰 Tin tức</li>
+            <li onclick="goGuide()">❓ Hướng dẫn</li>
+        </ul>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <h2 class="title" id="welcomeText">Trang Chủ Giảng Viên</h2>
+
+        <!-- CARDS -->
+        <section class="cards">
+
+            <div class="card">
+                <h3>Quản lý bài kiểm tra</h3>
+                <div class="card-main blue" onclick="goExam()">
+                    <i class="fa fa-chart-bar"></i>
+                    <p>Tổng hợp bài kiểm tra</p>
+                </div>
+                <p>Bài gần đây: SQL, OOP, API</p>
+            </div>
+
+            <!-- <div class="card">
+                <h3>Tạo bài ôn tập</h3>
+                <div class="card-main red" onclick="goPractice()">
+                    <i class="fa fa-pen"></i>
+                    <p>Tạo bài ôn tập</p>
+                </div>
+                <button onclick="goPractice()">Tạo nhanh API</button>
+                <button onclick="goPractice()">Tạo nhanh SQL</button>
+            </div> -->
+
+            <div class="card">
+                <h3>Tạo bài kiểm tra</h3>
+                <div class="card-main purple">
+                    <i class="fa fa-clipboard"></i>
+                    <p>Tạo bài kiểm tra</p>
+                </div>
+
+                <button class="btn-primary" onclick="goTest()">Bắt đầu</button>
+            </div>
+
+        </section>
+
+        <!-- BOTTOM -->
+        <section class="bottom">
+
+            <!-- CHART -->
+            <div class="chart-box">
+                <h3>Thống kê hoạt động</h3>
+                <canvas id="chart"></canvas>
+            </div>
+
+            <!-- NEWS -->
+            <div class="news-box">
+                <h3>Thông báo & Lịch thi</h3>
+
+                <!-- LỊCH THI -->
+                <div class="news-section">
+                    <b>📅 Lịch thi sắp tới</b>
+                    <div id="exam-news"></div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+<footer class="footer">
+
+    <!-- wave -->
+    <div class="footer-wave"></div>
+
+    <div class="footer-container">
+
+        <!-- BRAND -->
+        <div class="footer-col brand">
+            <h2>EDUSO</h2>
+            <p>Nền tảng học tập & thi online thông minh dành cho sinh viên.</p>
+
+            <div class="social">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-youtube"></i>
+                <i class="fab fa-github"></i>
+            </div>
+        </div>
+
+        <!-- LINKS -->
+        <div class="footer-col">
+            <h4>Hệ thống</h4>
+            <ul>
+                <li onclick="goHome()">Trang chủ</li>
+                <li onclick="goClass()">Lớp học</li>
+                <li onclick="goSchedule()">Lịch dạy</li>
+                <li onclick="goNews()">Tin tức</li>
+            </ul>
+        </div>
+
+        <!-- SUPPORT -->
+        <div class="footer-col">
+            <h4>Hỗ trợ</h4>
+            <ul>
+                <li>📧 support@eduso.vn</li>
+                <li>📞 0123 456 789</li>
+                <li>📍 Hà Nội</li>
+            </ul>
+        </div>
+
+        <!-- NEWSLETTER -->
+        <div class="footer-col">
+            <h4>Nhận thông báo</h4>
+            <p>Nhập email để nhận tin mới</p>
+
+            <div class="newsletter">
+                <input type="email" placeholder="Email của bạn">
+                <button>Gửi</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 EDUSO | Made with ❤️</p>
+    </div>
+
+</footer>
+
+<!-- SCROLL TOP -->
+<button id="scrollTop">⬆</button>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="/js/teacher.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Lịch dạy</title>
+<link rel="stylesheet" href="/css/admin.css">
+<link rel="stylesheet" href="/css/schedule.css">
+</head>
+<body>
+
+<div class="container">
+
+<!-- SIDEBAR (giữ nguyên của bạn) -->
+<div class="sidebar">
+    <div class="logo">
+        <img src="/images/gtvt.png">
+        <div class="school-name">EDUSO</div>
+    </div>
+
+    <ul>
+            <li onclick="goHome()">🏠 Trang chủ</li>
+            <li onclick="goClass()">📚 Lớp của tôi</li>
+            <li onclick="goSchedule()">📅 Lịch học</li>
+            <li onclick="goNews()">📰 Tin tức</li>
+            <li onclick="goGuide()">❓ Hướng dẫn</li>
+        </ul>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<h2>📅 Lịch dạy tuần</h2>
+
+
+
+<div id="calendar"></div>
+
+</div>
+</div>
+
+
+
+<script src="/js/student_schedule.js"></script>
+
+
+</body>
+</html>

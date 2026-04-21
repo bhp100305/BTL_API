@@ -1,0 +1,51 @@
+/* ===== TEACHER PAGE ===== */
+
+.form-box {
+    margin: 20px 0;
+}
+
+.form-box input {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.form-box button {
+    padding: 10px 15px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.form-box button:hover {
+    background: #2980b9;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table th, .table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    color: #fcfafa;
+}
+
+.table th {
+    background: #2c3e50;
+    color: white;
+}
+
+.btn-delete {
+    background: red;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}

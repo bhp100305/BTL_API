@@ -83,38 +83,13 @@ function goExam(class_id, type){
     window.location.href =
         `chooseGKCK.html?class_id=${class_id}&type=${type}`;
 }
-// ===== SIDEBAR NAV =====
-
-function goHome(){
-    window.location.href = "admin.html";
-}
-
-function goClass(){
-    window.location.href = "class.html";
-}
-
-function goManage(){
-    window.location.href = "manage.html";
-}
-
-function goMaterial(){
-    window.location.href = "material.html";
-}
-
-function goSchedule(){
-    window.location.href = "schedule.html";
-}
-
-function goExamMenu(){
-    window.location.href = "admin.html"; // trang hiện tại (khảo thí)
-}
-
-function goNews(){
-    window.location.href = "news.html";
-}
-
-function goGuide(){
-    window.location.href = "guide.html";
-}
+function goHome(){ location.href = "admin.html"; }
+function goClass(){ location.href = "class.html"; }
+function goSchedule(){ location.href = "schedule.html"; }
+function goPractice(){ location.href = "practice.html"; }
+function goTest(){ location.href = "addtest.html"; }
+function goNews(){ location.href = "news.html"; }
+function goGuide(){ location.href = "guide.html"; }
+function goTeacher(){ location.href = "allteacher.html"; }
 // ================== INIT ==================
 load();

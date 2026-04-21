@@ -14,67 +14,7 @@ body{
     display:flex;
     min-height:100vh;
 }
-/* logo */
-.logo {
-    text-align: center;
-    
-}
 
-.logo img {
-    width: 150px;
-    height: auto;
-}
-/* ===== SIDEBAR ===== */
-.sidebar{
-    width:240px;
-    background:#ffffff;
-    border-right:1px solid #e5e7eb;
-    padding:20px 15px;
-
-    display:flex;
-    flex-direction:column;
-
-    box-shadow:2px 0 10px rgba(0,0,0,0.05);
-}
-
-
-
-.sidebar{
-    width:220px;
-    background:#fff;
-    border-right:1px solid #ddd;
-    padding:20px;
-
-    display:flex;
-    flex-direction:column;
-    height:100vh;
-}
-
-/* UL chiếm full chiều cao */
-.sidebar ul{
-    list-style:none;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-evenly; /* ⭐ DÀN ĐỀU */
-    flex:1;
-}
-
-.sidebar li{
-    padding:12px;
-    cursor:pointer;
-    border-radius:8px;
-    text-align:left;
-    transition:0.2s;
-}
-
-.sidebar li:hover{
-    background:#e2e8f0;
-}
-
-.sidebar .active{
-    background:#fee2e2;
-    color:red;
-}
 
 /* ===== MAIN ===== */
 .main{
@@ -92,7 +32,7 @@ body{
 /* ===== CARDS ===== */
 .cards{
     display:grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(1,1fr);
     gap:20px;
 }
 
@@ -153,14 +93,19 @@ button:hover{
     display:grid;
     grid-template-columns:2fr 1fr;
     gap:20px;
-}
 
+    align-items:stretch;
+}
+.chart-box{
+    min-height:400px;   /* 🔥 QUAN TRỌNG */
+}
 .chart-box,
 .news-box{
     background:#fff;
     padding:20px;
     border-radius:16px;
     box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    height:100%;        /* 🔥 thêm */
 }
 
 /* news */

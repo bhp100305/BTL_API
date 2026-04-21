@@ -1,58 +1,147 @@
-body{
-    margin:0;
-    font-family:Arial;
-    background:#f1f5f9;
+/* ================= GIỮ NGUYÊN SIDEBAR CỦA BẠN ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif; /* Thêm font hệ thống cho mượt */
 }
 
-.container{
-    display:flex;
-    height:100vh;
+.container {
+    display: flex;
+    min-height: 100vh;
 }
 
-/* SIDEBAR */
-.sidebar{
-    width:220px;
-    background:#fff;
-    padding:20px;
+.sidebar {
+    width: 220px;
+    background: #fff;
+    border-right: 1px solid #ddd;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: sticky;
+    top: 0;
 }
 
-.sidebar ul{
-    list-style:none;
-    padding:0;
+.logo { text-align: center; }
+.logo img { width: 150px; height: auto; }
+.school-name { margin-top: 8px; font-size: 18px; font-weight: bold; color: black; }
+
+.sidebar ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex: 1;
 }
 
-.sidebar li{
-    padding:10px;
-    cursor:pointer;
+.sidebar li {
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.2s;
+    font-size: 18px; /* Chỉnh nhẹ cho cân đối */
 }
 
-.sidebar .active{
-    background:#fee2e2;
+.sidebar li:hover { background: #e2e8f0; }
+.sidebar .active { background: #fee2e2; color: red; font-weight: bold; }
+
+/* ================= NÂNG CẤP PHẦN MAIN (KHÔNG CHẠM SIDEBAR) ================= */
+
+.main {
+    flex: 1;
+    padding: 40px;
+    /* Nền gradient hiện đại kết hợp ảnh của bạn */
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.9), rgba(59, 130, 246, 0.7)), 
+                url('../images/login.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* MAIN */
-.main{
-    flex:1;
-    padding:30px;
+.main h2 {
+    color: #fff;
+    font-size: 32px;
+    margin-bottom: 30px;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.form{
-    margin-top:20px;
-    display:flex;
-    flex-direction:column;
-    width:300px;
+/* FORM BOX - Thiết kế lại kiểu Card chuyên nghiệp */
+.form {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    max-width: 500px; /* Rộng hơn một chút cho thoáng */
+    backdrop-filter: blur(10px); /* Hiệu ứng kính mờ */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Khoảng cách giữa các ô */
 }
 
-.form input,
-.form select{
-    margin-bottom:10px;
-    padding:10px;
+/* Label giả lập hoặc placeholder style */
+.form select, 
+.form input {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 16px;
+    color: #1e293b;
+    outline: none;
+    transition: all 0.3s ease;
+    background: #fff;
 }
 
-button{
-    padding:10px;
-    background:#2563eb;
-    color:#fff;
-    border:none;
-    cursor:pointer;
+.form select:focus, 
+.form input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+/* NÚT TẠO - Hiệu ứng Gradient & Hover */
+button {
+    margin-top: 10px;
+    padding: 16px;
+    background: linear-gradient(135deg, #1e3a8a, #2563eb);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.4);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 20px -3px rgba(37, 99, 235, 0.5);
+    filter: brightness(1.1);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Responsive cho vùng main */
+@media (max-width: 768px) {
+    .main {
+        padding: 20px;
+    }
+    .form {
+        padding: 25px;
+    }
+    .sidebar {
+        width: 80px; /* Thu nhỏ sidebar trên mobile nếu cần */
+    }
+    .sidebar li span { display: none; } /* Ẩn chữ giữ icon nếu bạn có icon */
 }

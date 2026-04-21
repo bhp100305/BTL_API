@@ -4,7 +4,9 @@
     box-sizing:border-box;
     font-family: Arial;
 }
-
+h2{
+    color:#f7f7f7;
+}
 body{
     background:#f1f5f9;
 }
@@ -58,11 +60,21 @@ body{
     background:#fee2e2;
     color:red;
 }
-
+.logo h2{
+    color:#3f0000;
+    margin-top: 8px;
+    font-size: 34px;
+}
 /* MAIN */
 .main{
+    
     flex:1;
     padding:20px;
+    background: linear-gradient(to right, rgba(28, 71, 150, 0.85), rgba(59, 130, 246, 0.6)), 
+                url('../images/login.jpg'); /* Kiểm tra lại đường dẫn này */
+    background-repeat: no-repeat;
+    background-size: cover;    /* Bắt buộc có để ảnh phủ kín khung hình */
+    background-position: center; /* Để tâm ảnh luôn nằm giữa */
 }
 
 /* BREADCRUMB */
@@ -148,6 +160,7 @@ body{
     cursor:pointer;
     border-radius:6px;
     transition:0.2s;
+    font-size: 20px;
 }
 
 .sidebar li:hover{
@@ -302,5 +315,175 @@ body{
 
     .bottom{
         grid-template-columns:1fr;
+    }
+}
+/* ================= FOOTER PRO ================= */
+
+.footer{
+    position:relative;
+    background:linear-gradient(135deg,#020617,#0f172a);
+    color:#fff;
+    overflow:hidden;
+}
+
+/* wave animation */
+.footer-wave{
+    position:absolute;
+    top:-50px;
+    left:0;
+    width:200%;
+    height:100px;
+    background:radial-gradient(circle at 50% 50%, #3b82f6 20%, transparent 70%);
+    opacity:0.15;
+    animation:wave 10s linear infinite;
+}
+
+@keyframes wave{
+    0%{ transform:translateX(0);}
+    100%{ transform:translateX(-50%);}
+}
+
+/* layout */
+.footer-container{
+    max-width:1200px;
+    margin:auto;
+    padding:40px 20px;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+}
+
+/* glass effect */
+.footer-col{
+    backdrop-filter:blur(10px);
+}
+
+/* brand */
+.brand h2{
+    font-size:26px;
+    margin-bottom:10px;
+}
+
+.brand p{
+    color:#94a3b8;
+}
+
+/* list */
+.footer-col ul{
+    list-style:none;
+}
+
+.footer-col ul li{
+    margin:8px 0;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.footer-col ul li:hover{
+    transform:translateX(5px);
+    color:#60a5fa;
+}
+
+/* social */
+.social{
+    margin-top:10px;
+    display:flex;
+    gap:15px;
+    font-size:20px;
+}
+
+.social i{
+    transition:0.3s;
+    cursor:pointer;
+}
+
+.social i:hover{
+    transform:scale(1.3) rotate(5deg);
+    color:#60a5fa;
+}
+
+/* newsletter */
+.newsletter{
+    display:flex;
+    margin-top:10px;
+}
+
+.newsletter input{
+    flex:1;
+    padding:10px;
+    border:none;
+    border-radius:8px 0 0 8px;
+    outline:none;
+}
+
+.newsletter button{
+    padding:10px 15px;
+    border:none;
+    background:#3b82f6;
+    color:#fff;
+    border-radius:0 8px 8px 0;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.newsletter button:hover{
+    background:#2563eb;
+}
+
+/* bottom */
+.footer-bottom{
+    text-align:center;
+    padding:15px;
+    background:#020617;
+    color:#94a3b8;
+}
+
+/* SCROLL TOP */
+#scrollTop{
+    position:fixed;
+    bottom:30px;
+    right:30px;
+    padding:12px 15px;
+    border:none;
+    border-radius:50%;
+    background:#3b82f6;
+    color:#fff;
+    font-size:18px;
+    cursor:pointer;
+    display:none;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+    transition:0.3s;
+}
+
+#scrollTop:hover{
+    transform:scale(1.2);
+}
+
+/* responsive */
+@media(max-width:900px){
+    .footer-container{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:500px){
+    .footer-container{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .newsletter{
+        flex-direction:column;
+    }
+
+    .newsletter input,
+    .newsletter button{
+        border-radius:8px;
+        margin:5px 0;
+    }
+
+    .social{
+        justify-content:center;
     }
 }

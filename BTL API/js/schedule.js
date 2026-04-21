@@ -9,7 +9,7 @@ function formatTime(t){
 
 /* LOAD LỊCH */
 function load(){
-    fetch(API + "/api/schedule/" + teacher_id)
+    fetch(API + "/api/admin/schedule" )
     .then(res => res.json())
     .then(data => {
 

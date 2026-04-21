@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Lớp học</title>
+    <link rel="stylesheet" href="/css/class.css">
+    <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <div class="logo">
+            <img src="/images/gtvt.png">
+            <h2>EDUSO</h2>
+        </div>
+
+        <ul>
+            <li onclick="goHome()">🏠 Trang chủ</li>
+            <li onclick="goClass()">📚 Lớp của tôi</li>
+            <li onclick="goSchedule()">📅 Lịch học</li>
+            <li onclick="goNews()">📰 Tin tức</li>
+            <li onclick="goGuide()">❓ Hướng dẫn</li>
+        </ul>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+
+        <div class="topbar">
+            <h2>📚 Danh sách lớp</h2>
+            
+        </div>
+
+        <div id="classList" class="class-grid"></div>
+
+    </div>
+
+</div>
+
+
+
+<script src="/js/student_class.js"></script>
+
+</body>
+</html>

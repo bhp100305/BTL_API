@@ -1,22 +1,48 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-<meta charset="UTF-8">
-<title>Đăng nhập</title>
 
-<link rel="stylesheet" href="css/login.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng nhập</title>
+    <link rel="stylesheet" href="css/login.css">
 </head>
 
 <body>
 
-<div class="box">
-    <h2>Đăng nhập</h2>
-    <input id="username" placeholder="Username">
-    <input id="password" type="password" placeholder="Password">
-    <button onclick="login()">Đăng nhập</button>
-</div>
+    <div class="container">
 
-<script src="js/login.js"></script>
+        <!-- LEFT FORM -->
+        <div class="login-box">
+
+            <!-- LOGO -->
+            <div class="logo">
+                <img src="images/gtvt.png" alt="Logo">
+            </div>
+
+            <h2>Đăng nhập</h2>
+
+            <input id="username" placeholder="Username">
+            <input id="password" type="password" placeholder="Password">
+
+            <button onclick="login()">Đăng nhập</button>
+
+            <div class="footer">
+                <span>Chưa có tài khoản?</span>
+                <a href="#">Đăng ký</a>
+            </div>
+
+        </div>
+
+        <!-- RIGHT WELCOME -->
+        <div class="welcome-box">
+            <h1>Welcome.</h1>
+            <p>Hệ thống quản lý bài thi trắc nghiệm hiện đại, nhanh và dễ sử dụng.</p>
+        </div>
+
+    </div>
+
+    <script src="js/login.js"></script>
 
 </body>
+
 </html>

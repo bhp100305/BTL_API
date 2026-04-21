@@ -12,6 +12,8 @@
 
     <!-- ACTION -->
     <div class="actions">
+        <input type="file" id="excelFile" >
+        <button onclick="importExcel()">📥 Import Excel</button>
         <button onclick="openAdd()">➕ Thêm sinh viên</button>
         <button onclick="save()">💾 Lưu</button>
     </div>
@@ -56,6 +58,7 @@
     </div>
 </div>
 
+<script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
 <script src="/js/socore.js"></script>
 </body>
 </html>

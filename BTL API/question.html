@@ -5,7 +5,6 @@
     <title>Tạo câu hỏi</title>
     <link rel="stylesheet" href="/css/admin.css">
     <link rel="stylesheet" href="/css/question.css">
-    <script src="https://cdn.sheetjs.com/xlsx-0.20.0/package/dist/xlsx.full.min.js"></script>
 </head>
 <body>
 
@@ -19,80 +18,94 @@
         </div>
 
         <ul>
-            <li onclick="goHome()">🏠 Trang chủ</li>
-            <li onclick="goClass()">📚 Lớp của tôi</li>
-            <li onclick="goManage()">📁 Quản lý</li>
-            <li onclick="goMaterial()">📖 Học liệu</li>
-            <li onclick="goSchedule()">📅 Lịch dạy</li>
-            <li onclick="goExamMenu()">📝 Khảo thí</li>
-            <li onclick="goNews()">📰 Tin tức</li>
-            <li onclick="goGuide()">❓ Hướng dẫn</li>
+            <li onclick="goHome()">🏠 Trang Chủ</li>
+            <li onclick="goClass()">📚 Lớp Học</li>
+            <li onclick="goTeacher()">📚 Giảng Viên</li>
+            <li onclick="goSchedule()">📅 Lịch Dạy</li>
+            <li onclick="goNews()">📰 Tin Tức</li>
+            <li onclick="goGuide()">❓ Hướng Dẫn</li>
         </ul>
     </div>
 
     <!-- MAIN -->
     <div class="main">
 
-        <h2>📚 Tạo câu hỏi</h2>
+        <div class="page-header">
+            <h1>📚 Tạo câu hỏi cho bài thi</h1>
+            <p>Thêm câu hỏi thủ công hoặc import nhanh từ file Excel</p>
+        </div>
 
-        <div class="form-box">
+        <!-- IMPORT -->
+        <div class="form-box import-box">
+            <h3>📥 Import từ Excel</h3>
 
-            <textarea id="question" placeholder="Nhập câu hỏi..."></textarea>
-
-            <div class="answers">
-                <input id="a" placeholder="Đáp án A">
-                <input id="b" placeholder="Đáp án B">
-                <input id="c" placeholder="Đáp án C">
-                <input id="d" placeholder="Đáp án D">
+            <div class="import-row">
+                <input type="file" id="excelFile" accept=".xlsx,.xls">
+                <button class="import-btn" onclick="importExcel()">Import Excel</button>
             </div>
 
+            <small>
+                Format file: question | A | B | C | D | correct
+            </small>
+        </div>
+
+        <!-- THÊM THỦ CÔNG -->
+        <div class="form-box">
+
+            <h3>✍️ Thêm câu hỏi thủ công</h3>
+
+            <label>Câu hỏi</label>
+            <textarea id="question" placeholder="Nhập nội dung câu hỏi..."></textarea>
+
+            <div class="answers">
+                <div class="answer-group">
+                    <label>Đáp án A</label>
+                    <input id="a" placeholder="Nhập đáp án A">
+                </div>
+
+                <div class="answer-group">
+                    <label>Đáp án B</label>
+                    <input id="b" placeholder="Nhập đáp án B">
+                </div>
+
+                <div class="answer-group">
+                    <label>Đáp án C</label>
+                    <input id="c" placeholder="Nhập đáp án C">
+                </div>
+
+                <div class="answer-group">
+                    <label>Đáp án D</label>
+                    <input id="d" placeholder="Nhập đáp án D">
+                </div>
+            </div>
+
+            <label>Đáp án đúng</label>
             <select id="correct">
-                <option value="A">Đáp án đúng A</option>
-                <option value="B">Đáp án đúng B</option>
-                <option value="C">Đáp án đúng C</option>
-                <option value="D">Đáp án đúng D</option>
+                <option value="A">Đáp án A</option>
+                <option value="B">Đáp án B</option>
+                <option value="C">Đáp án C</option>
+                <option value="D">Đáp án D</option>
             </select>
 
             <div class="btn-group">
-                <button onclick="add()">➕ Thêm</button>
-                <button onclick="generateAI()">🤖 AI tạo nhanh</button>
-                <input type="file" id="excel-file-main" accept=".xlsx, .xls" style="display: none;" onchange="importExcel(this)">
-                <button onclick="document.getElementById('excel-file-main').click()" style="background-color: #1D6F42;">
-                    Excel Tải lên
-                </button>
+                <button class="add-btn" onclick="add()">➕ Thêm câu hỏi</button>
+                
             </div>
 
         </div>
 
-        <div id="list"></div>
-
-    </div>
-</div>
-<div id="excelModal" class="modal" style="display:none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
-    <div class="modal-content" style="background-color: #fff; margin: 5% auto; padding: 25px; border-radius: 12px; width: 50%; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
-        <span onclick="closeExcelModal()" style="float: right; cursor: pointer; font-size: 24px;">&times;</span>
-        <h2 style="color: #2e7d32; margin-top: 0;">📁 Nhập câu hỏi từ Excel theo tỷ lệ</h2>
-        
-        <div style="margin: 20px 0;">
-            <label><strong>Bước 1: Chọn file Excel của bạn</strong></label><br>
-            <input type="file" id="excel-file-modal" onchange="handleFileSelect(this)" accept=".xlsx, .xls" style="margin-top: 10px;">
+        <div class="question-list">
+            <h3>📋 Danh sách câu hỏi</h3>
+            <div id="list"></div>
         </div>
-
-        <div id="config-section" style="display:none;">
-            <hr>
-            <label><strong>Bước 2: Cấu hình tỷ lệ lấy câu hỏi</strong></label>
-            <p style="font-size: 0.9em; color: #666;">(Tổng tỷ lệ phải bằng 100%)</p>
-            
-            <div id="sheet-list" style="max-height: 250px; overflow-y: auto; background: #f8f9fa; padding: 10px; border-radius: 8px;">
-                </div>
-
-            <div style="margin-top: 20px; text-align: right;">
-                <span style="margin-right: 15px;">Tổng câu cho đề: <input type="number" id="total-q" value="10" style="width: 50px;"></span>
-                <button onclick="processMixImport()" style="background: #2e7d32; color: white; border: none; padding: 10px 25px; border-radius: 6px; cursor: pointer; font-weight: bold;">🚀 Bắt đầu Import</button>
-            </div>
+        <div class="save-section">
+            <button class="save-all-btn" onclick="saveAll()">💾 Lưu tất cả câu hỏi</button>
         </div>
     </div>
+    
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
 <script src="/js/question.js"></script>
 <script src="/js/admin.js"></script>
 </body>

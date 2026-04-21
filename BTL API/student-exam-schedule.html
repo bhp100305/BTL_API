@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Lịch thi</title>
+
+<link rel="stylesheet" href="/css/student.css">
+<link rel="stylesheet" href="/css/exam-schedule.css">
+
+</head>
+<body>
+
+<div class="container">
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+    <div class="logo">
+        <img src="images/gtvt.png">
+        <h2>EDUSO</h2>
+    </div>
+
+    <ul>
+        <li onclick="goHome()">🏠 Trang chủ</li>
+        <li onclick="goClass()">📚 Lớp của tôi</li>
+        <li onclick="goMaterial()">📖 Học liệu</li>
+        <li onclick="goSchedule()">📅 Lịch học</li>
+        <li onclick="goNews()">📰 Tin tức</li>
+        <li onclick="goGuide()">❓ Hướng dẫn</li>
+    </ul>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+
+    <h2 class="title">📅 Lịch thi của bạn</h2>
+
+    <!-- SUMMARY -->
+    <div class="summary">
+        <div class="sum-card">
+            <h3>Tổng số bài thi</h3>
+            <h1 id="totalExam">0</h1>
+        </div>
+
+        <div class="sum-card red">
+            <h3>Sắp diễn ra</h3>
+            <h1 id="upcoming">0</h1>
+        </div>
+    </div>
+
+    <!-- CALENDAR -->
+    <div id="calendar" class="calendar"></div>
+
+</main>
+
+</div>
+
+<script src="/js/exam-schedule.js"></script>
+</body>
+</html>

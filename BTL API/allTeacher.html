@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>EDUSO - Giáo viên</title>
+
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/allteacher.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="images/gtvt.png">
+            <h2>EDUSO</h2>
+        </div>
+
+        <ul>
+            <li onclick="goHome()">🏠 Trang Chủ</li>
+            <li onclick="goClass()">📚 Lớp Học</li>
+            <li onclick="goTeacher()">📚 Giảng Viên</li>
+            <li onclick="goSchedule()">📅 Lịch Dạy</li>
+            <li onclick="goNews()">📰 Tin Tức</li>
+            <li onclick="goGuide()">❓ Hướng Dẫn</li>
+        </ul>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <h2 class="title">Quản lý giáo viên</h2>
+
+        <!-- FORM THÊM -->
+        <div class="form-box">
+            <input type="text" id="name" placeholder="Tên giáo viên">
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Mật khẩu">
+            <button onclick="addTeacher()">➕ Thêm</button>
+        </div>
+
+        <!-- TABLE -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Họ tên</th>
+                    <th>Username</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody id="teacherTable"></tbody>
+        </table>
+
+    </main>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+
+    <div class="footer-wave"></div>
+
+    <div class="footer-container">
+
+        <div class="footer-col brand">
+            <h2>EDUSO</h2>
+            <p>Nền tảng học tập & thi online thông minh dành cho sinh viên.</p>
+
+            <div class="social">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-youtube"></i>
+                <i class="fab fa-github"></i>
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h4>Hệ thống</h4>
+            <ul>
+                <li onclick="goHome()">Trang chủ</li>
+                <li onclick="goClass()">Lớp học</li>
+                <li onclick="goSchedule()">Lịch dạy</li>
+                <li onclick="goTeacher()">Giáo viên</li>
+                <li onclick="goNews()">Tin tức</li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Hỗ trợ</h4>
+            <ul>
+                <li>📧 support@eduso.vn</li>
+                <li>📞 0123 456 789</li>
+                <li>📍 Hà Nội</li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Nhận thông báo</h4>
+            <p>Nhập email để nhận tin mới</p>
+
+            <div class="newsletter">
+                <input type="email" placeholder="Email của bạn">
+                <button>Gửi</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 EDUSO | Made with ❤️</p>
+    </div>
+
+</footer>
+
+<!-- SCROLL TOP -->
+<button id="scrollTop">⬆</button>
+
+<script src="/js/allteacher.js"></script>
+
+
+
+</body>
+</html>

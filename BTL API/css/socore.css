@@ -55,8 +55,11 @@ input{
     width:70px;
     padding:5px;
     text-align:center;
+    
 }
-
+.actions input{
+    width:200px;
+}
 /* DELETE BTN */
 .delete-btn{
     background:#ef4444;

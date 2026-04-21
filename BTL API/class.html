@@ -17,15 +17,13 @@
             <h2>EDUSO</h2>
         </div>
 
-        <ul class="menu">
-            <li onclick="goHome()">🏠 Trang chủ</li>
-            <li class="active">📚 Lớp của tôi</li>
-            <li onclick="goManage()">📁 Quản lý</li>
-            <li onclick="goMaterial()">📖 Học liệu</li>
-            <li onclick="goSchedule()">📅 Lịch dạy</li>
-            <li onclick="goExamMenu()">📝 Khảo thí</li>
-            <li onclick="goNews()">📰 Tin tức</li>
-            <li onclick="goGuide()">❓ Hướng dẫn</li>
+        <ul>
+            <li onclick="goHome()">🏠 Trang Chủ</li>
+            <li onclick="goClass()">📚 Lớp Học</li>
+            <li onclick="goTeacher()">📚 Giảng Viên</li>
+            <li onclick="goSchedule()">📅 Lịch Dạy</li>
+            <li onclick="goNews()">📰 Tin Tức</li>
+            <li onclick="goGuide()">❓ Hướng Dẫn</li>
         </ul>
     </div>
 
@@ -34,7 +32,16 @@
 
         <div class="topbar">
             <h2>📚 Danh sách lớp</h2>
-            <button onclick="openAdd()" class="btn-add">+ Tạo lớp</button>
+
+            <div class="top-actions">
+                <input type="text" id="searchInput"
+                    placeholder="🔍 Tìm theo tên lớp..."
+                    onkeyup="searchClass()">
+
+                <button onclick="openAdd()" class="btn-add">
+                    + Tạo lớp
+                </button>
+            </div>
         </div>
 
         <div id="classList" class="class-grid"></div>
@@ -50,6 +57,7 @@
         <h3 id="title">Tạo lớp</h3>
 
         <input id="className" placeholder="Nhập tên lớp...">
+        <select id="teacherSelect"></select>
 
         <div class="popup-actions">
             <button class="btn-save" onclick="save()">💾 Lưu</button>
@@ -60,7 +68,6 @@
 </div>
 
 <script src="/js/class.js"></script>
-<script src="/js/admin.js"></script>
 
 </body>
 </html>

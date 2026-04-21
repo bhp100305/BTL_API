@@ -1,0 +1,489 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial;
+}
+.logo h2{
+    color:#3f0000;
+    margin-top: 8px;
+    font-size: 34px;
+}
+body{
+    background:#f1f5f9;
+}
+.main{
+    flex:1;
+    padding:20px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center; /* ⭐ căn giữa ngang */
+}
+/* LAYOUT */
+.container{
+    display:flex;
+    height:100vh;
+}
+h2{
+    color:#eeeeef;
+}
+.sidebar{
+    width:220px;
+    background:#fff;
+    border-right:1px solid #ddd;
+    padding:20px;
+
+    display:flex;
+    flex-direction:column;
+    height:100vh;
+}
+
+/* UL chiếm full chiều cao */
+.sidebar ul{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-evenly; /* ⭐ DÀN ĐỀU */
+    flex:1;
+}
+
+.sidebar li{
+    padding:12px;
+    cursor:pointer;
+    border-radius:8px;
+    text-align:left;
+    transition:0.2s;
+}
+
+.sidebar li:hover{
+    background:#e2e8f0;
+}
+
+.sidebar .active{
+    background:#fee2e2;
+    color:red;
+}
+
+/* MAIN */
+.main{
+    flex:1;
+    padding:20px;
+
+    background: linear-gradient(to right, rgba(28, 71, 150, 0.85), rgba(59, 130, 246, 0.6)), 
+                url('../images/login.jpg'); /* Kiểm tra lại đường dẫn này */
+    background-repeat: no-repeat;
+    background-size: cover;    /* Bắt buộc có để ảnh phủ kín khung hình */
+    background-position: center; /* Để tâm ảnh luôn nằm giữa */
+}
+
+/* BREADCRUMB */
+.breadcrumb{
+    margin-bottom:30px;
+    color:#555;
+}
+
+.circle-group{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr); /* ⭐ 3 nút 1 hàng */
+    gap:40px;
+    justify-items:center; /* căn giữa mỗi nút */
+    margin-top:40px;
+}
+.circle{
+    width:200px;
+    height:200px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:#fff;
+    font-weight:bold;
+    cursor:pointer;
+
+    flex: 0 0 120px; /* ⭐ GIỮ KÍCH THƯỚC ĐỀU */
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    transition:0.3s;
+}
+@media (max-width: 900px){
+    .circle-group{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px){
+    .circle-group{
+        grid-template-columns: 1fr;
+    }
+}
+.circle:hover{
+    transform:scale(1.1);
+}
+
+.circle:hover{
+    transform:scale(1.1);
+}
+
+/* COLORS */
+.blue{ background:#1e3a8a; }
+.red{ background:#dc2626; }
+.orange{ background:#f97316; }
+.purple{ background:#7c3aed; }
+.green{ background:#166534; }
+
+/* TOOLTIP */
+.tooltip{
+    width:250px;
+    margin:50px auto;
+    padding:20px;
+    border:2px solid #3b82f6;
+    border-radius:12px;
+    text-align:center;
+    position:relative;
+    background:#fff;
+}
+
+.tooltip::before{
+    content:"";
+    position:absolute;
+    top:-20px;
+    left:50%;
+    transform:translateX(-50%);
+    border-width:10px;
+    border-style:solid;
+    border-color:transparent transparent #3b82f6 transparent;
+}
+.sidebar li{
+    padding:10px;
+    cursor:pointer;
+    border-radius:6px;
+    transition:0.2s;
+    font-size: 20px;
+}
+
+.sidebar li:hover{
+    background:#e2e8f0;
+}
+
+.sidebar .active{
+    background:#fee2e2;
+    color:red;
+    font-weight:bold;
+}
+.logo {
+    text-align: center;
+    
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+}
+
+.school-name {
+    margin-top: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    color:black;
+}
+/* ================= FIX DASHBOARD (KHÔNG ĐỤNG CODE CŨ) ================= */
+
+/* override lỗi căn giữa */
+
+
+/* fix container không bị bó */
+.container{
+    min-height:100vh;
+    height:auto !important;
+}
+
+/* tiêu đề */
+.title{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+/* cards layout */
+.cards{
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:20px;
+}
+
+/* card đẹp hơn */
+.card{
+    background:#fff;
+    border-radius:16px;
+    padding:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+/* phần chính card */
+.card-main{
+    border-radius:12px;
+    padding:25px;
+    color:#fff;
+    text-align:center;
+    cursor:pointer;
+    margin-bottom:15px;
+    transition:0.3s;
+}
+
+.card-main:hover{
+    transform:scale(1.03);
+}
+
+/* gradient giống hình */
+.card-main.blue{
+    background:linear-gradient(135deg,#1e3a8a,#3b82f6) !important;
+}
+
+.card-main.red{
+    background:linear-gradient(135deg,#dc2626,#f87171) !important;
+}
+
+.card-main.purple{
+    background:linear-gradient(135deg,#7c3aed,#a78bfa) !important;
+}
+
+/* button */
+.card button{
+    width:100%;
+    padding:10px;
+    margin-top:8px;
+    border:none;
+    border-radius:8px;
+  
+    cursor:pointer;
+}
+
+.card button:hover{
+    background:#cbd5e1;
+}
+
+.btn-primary{
+    background:#3b82f6 !important;
+    color:#fff;
+}
+
+/* input */
+.card input,
+.card select{
+    width:100%;
+    padding:10px;
+    margin:6px 0;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+/* bottom layout */
+.bottom{
+    width:100%;
+    max-width:1200px;
+    margin:25px auto 0;
+
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+    gap:20px;
+}
+
+/* chart + news */
+.chart-box,
+.news-box{
+    background:#fff;
+    padding:20px;
+    border-radius:16px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* responsive */
+@media (max-width: 900px){
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .bottom{
+        grid-template-columns:1fr;
+    }
+}
+/* ================= FOOTER PRO ================= */
+
+.footer{
+    position:relative;
+    background:linear-gradient(135deg,#020617,#0f172a);
+    color:#fff;
+    overflow:hidden;
+}
+
+/* wave animation */
+.footer-wave{
+    position:absolute;
+    top:-50px;
+    left:0;
+    width:200%;
+    height:100px;
+    background:radial-gradient(circle at 50% 50%, #3b82f6 20%, transparent 70%);
+    opacity:0.15;
+    animation:wave 10s linear infinite;
+}
+
+@keyframes wave{
+    0%{ transform:translateX(0);}
+    100%{ transform:translateX(-50%);}
+}
+
+/* layout */
+.footer-container{
+    max-width:1200px;
+    margin:auto;
+    padding:40px 20px;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+}
+
+/* glass effect */
+.footer-col{
+    backdrop-filter:blur(10px);
+}
+
+/* brand */
+.brand h2{
+    font-size:26px;
+    margin-bottom:10px;
+}
+
+.brand p{
+    color:#94a3b8;
+}
+
+/* list */
+.footer-col ul{
+    list-style:none;
+}
+
+.footer-col ul li{
+    margin:8px 0;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.footer-col ul li:hover{
+    transform:translateX(5px);
+    color:#60a5fa;
+}
+
+/* social */
+.social{
+    margin-top:10px;
+    display:flex;
+    gap:15px;
+    font-size:20px;
+}
+
+.social i{
+    transition:0.3s;
+    cursor:pointer;
+}
+
+.social i:hover{
+    transform:scale(1.3) rotate(5deg);
+    color:#60a5fa;
+}
+
+/* newsletter */
+.newsletter{
+    display:flex;
+    margin-top:10px;
+}
+
+.newsletter input{
+    flex:1;
+    padding:10px;
+    border:none;
+    border-radius:8px 0 0 8px;
+    outline:none;
+}
+
+.newsletter button{
+    padding:10px 15px;
+    border:none;
+    background:#3b82f6;
+    color:#fff;
+    border-radius:0 8px 8px 0;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.newsletter button:hover{
+    background:#2563eb;
+}
+
+/* bottom */
+.footer-bottom{
+    text-align:center;
+    padding:15px;
+    background:#020617;
+    color:#94a3b8;
+}
+
+/* SCROLL TOP */
+#scrollTop{
+    position:fixed;
+    bottom:30px;
+    right:30px;
+    padding:12px 15px;
+    border:none;
+    border-radius:50%;
+    background:#3b82f6;
+    color:#fff;
+    font-size:18px;
+    cursor:pointer;
+    display:none;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+    transition:0.3s;
+}
+
+#scrollTop:hover{
+    transform:scale(1.2);
+}
+
+/* responsive */
+@media(max-width:900px){
+    .footer-container{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:500px){
+    .footer-container{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .newsletter{
+        flex-direction:column;
+    }
+
+    .newsletter input,
+    .newsletter button{
+        border-radius:8px;
+        margin:5px 0;
+    }
+
+    .social{
+        justify-content:center;
+    }
+}

@@ -20,10 +20,7 @@
         <ul>
             <li onclick="goHome()">🏠 Trang chủ</li>
             <li onclick="goClass()">📚 Lớp của tôi</li>
-            <li onclick="goManage()">📁 Quản lý</li>
-            <li onclick="goMaterial()">📖 Học liệu</li>
             <li onclick="goSchedule()">📅 Lịch dạy</li>
-            <li onclick="goExamMenu()">📝 Khảo thí</li>
             <li onclick="goNews()">📰 Tin tức</li>
             <li onclick="goGuide()">❓ Hướng dẫn</li>
         </ul>
@@ -35,15 +32,15 @@
         <h2>📝 Tạo bài kiểm tra</h2>
 
         <div class="form">
-            <input id="name" placeholder="Tên bài kiểm tra">
-
+            
             <select id="class_id"></select>
-
+            <input type="text" id="name" placeholder="Nhập môn thi (VD: Java, SQL)">
             <select id="type">
                 <option value="midterm">Giữa kỳ</option>
                 <option value="final">Cuối kỳ</option>
             </select>
-            <input type="number" id="question_count" placeholder="Số câu hỏi" min="1" max="100">
+            <input type="date" id="exam_date">
+
             <button onclick="create()">Tạo</button>
         </div>
 

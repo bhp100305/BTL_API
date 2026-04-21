@@ -40,3 +40,32 @@ button {
     background: #e74c3c;
     color: white;
 }
+.info {
+    margin: 10px 0;
+    color: #555;
+}
+
+.date-btn {
+    background: #f39c12;
+    color: white;
+}
+
+.date-btn:hover {
+    background: #e67e22;
+}
+.status{
+    margin-top:8px;
+    font-weight:bold;
+}
+
+.status.open{
+    color: green;
+}
+
+.status.closed{
+    color: red;
+}
+
+.status.gray{
+    color: gray;
+}

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>EDUSO - Sinh viên</title>
+    <link rel="stylesheet" href="/css/admin.css">
     <link rel="stylesheet" href="/css/student.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
@@ -20,9 +21,7 @@
         <ul>
             <li onclick="goHome()">🏠 Trang chủ</li>
             <li onclick="goClass()">📚 Lớp của tôi</li>
-            <li onclick="goMaterial()">📖 Học liệu</li>
             <li onclick="goSchedule()">📅 Lịch học</li>
-            <li onclick="goExam()">📝 Bài kiểm tra</li>
             <li onclick="goNews()">📰 Tin tức</li>
             <li onclick="goGuide()">❓ Hướng dẫn</li>
         </ul>
@@ -31,7 +30,7 @@
     <!-- MAIN -->
     <main class="main">
 
-        <h2 class="title">Trang Chủ</h2>
+        <h2 class="title" id="welcomeText"></h2>
 
         <!-- CARDS -->
         <section class="cards">
@@ -41,33 +40,24 @@
                 <h3>Khóa học & Đề kiểm tra</h3>
                 <div class="card-main blue">
                     <i class="fa fa-book"></i>
-                    <h1>8</h1>
+                    <h1 id="examCount">0</h1>
                 </div>
                 <p>Tất cả môn học: SQL, OOP, DSA,...</p>
-                <button class="btn-primary">Xem chi tiết</button>
+                <button class="btn-primary" onclick="goKT()  ">Xem chi tiết</button>
             </div>
 
             <!-- CARD 2 -->
-            <div class="card">
+            <!-- <div class="card">
                 <h3>Bài test & Deadline</h3>
                 <div class="card-main red">
                     <i class="fa fa-clock"></i>
                     <h1>4</h1>
                 </div>
                 <p>Sắp đến hạn nộp bài</p>
-                <button class="btn-danger">Nộp bài ngay</button>
-            </div>
+                <button class="btn-danger" onclick="goTest()" >Nộp bài ngay</button>
+            </div> -->
 
-            <!-- CARD 3 -->
-            <div class="card">
-                <h3>Lịch thi sắp tới</h3>
-                <div class="card-main purple">
-                    <i class="fa fa-calendar"></i>
-                    <h1>2</h1>
-                </div>
-                <p>Giữa kỳ & Cuối kỳ</p>
-                <button class="btn-purple">Xem lịch</button>
-            </div>
+            
 
         </section>
 
@@ -106,7 +96,64 @@
     </main>
 
 </div>
+<footer class="footer">
 
+    <!-- wave -->
+    <div class="footer-wave"></div>
+
+    <div class="footer-container">
+
+        <!-- BRAND -->
+        <div class="footer-col brand">
+            <h2>EDUSO</h2>
+            <p>Nền tảng học tập & thi online thông minh dành cho sinh viên.</p>
+
+            <div class="social">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-youtube"></i>
+                <i class="fab fa-github"></i>
+            </div>
+        </div>
+
+        <!-- LINKS -->
+        <div class="footer-col">
+            <h4>Hệ thống</h4>
+            <ul>
+                <li onclick="goHome()">Trang chủ</li>
+                <li onclick="goClass()">Lớp học</li>
+                <li onclick="goSchedule()">Lịch dạy</li>
+                <li onclick="goNews()">Tin tức</li>
+            </ul>
+        </div>
+
+        <!-- SUPPORT -->
+        <div class="footer-col">
+            <h4>Hỗ trợ</h4>
+            <ul>
+                <li>📧 support@eduso.vn</li>
+                <li>📞 0123 456 789</li>
+                <li>📍 Hà Nội</li>
+            </ul>
+        </div>
+
+        <!-- NEWSLETTER -->
+        <div class="footer-col">
+            <h4>Nhận thông báo</h4>
+            <p>Nhập email để nhận tin mới</p>
+
+            <div class="newsletter">
+                <input type="email" placeholder="Email của bạn">
+                <button>Gửi</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 EDUSO | Made with ❤️</p>
+    </div>
+
+</footer>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="/js/student.js"></script>
 

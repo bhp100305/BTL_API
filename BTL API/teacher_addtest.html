@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo bài kiểm tra</title>
+    <link rel="stylesheet" href="/css/addtest.css">
+    <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <div class="logo">
+            <img src="/images/gtvt.png" alt="Logo">
+            <div class="school-name">EDUSO</div>
+    </div>
+
+        <ul>
+            <li onclick="goHome()">🏠 Trang chủ</li>
+            <li onclick="goClass()">📚 Lớp của tôi</li>
+            <li onclick="goSchedule()">📅 Lịch dạy</li>
+            <li onclick="goNews()">📰 Tin tức</li>
+            <li onclick="goGuide()">❓ Hướng dẫn</li>
+        </ul>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+
+        <h2>📝 Tạo bài kiểm tra</h2>
+
+        <div class="form">
+            
+            <select id="class_id"></select>
+            <input type="text" id="name" placeholder="Nhập môn thi (VD: Java, SQL)">
+            <select id="type">
+                <option value="midterm">Giữa kỳ</option>
+                <option value="final">Cuối kỳ</option>
+            </select>
+            <input type="date" id="exam_date">
+
+            <button onclick="create()">Tạo</button>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="/js/teacher_addtest.js"></script>
+</body>
+</html>

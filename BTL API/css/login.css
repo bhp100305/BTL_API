@@ -1,41 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial;
-    background: linear-gradient(to right, #4facfe, #00f2fe);
+    font-family: "Inter", sans-serif;
+    height: 100vh;
 }
 
-.box {
-    width: 320px;
-    margin: 120px auto;
-    padding: 25px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+/* LAYOUT 2 CỘT */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* LEFT LOGIN */
+.login-box {
+    width: 380px;
+    background: #fff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 40px;
+    box-shadow: 5px 0 30px rgba(0, 0, 0, 0.08);
+}
+
+/* LOGO */
+.logo {
     text-align: center;
+    margin-bottom: 120px;
 }
 
-h2 {
-    margin-bottom: 20px;
+.logo img {
+    width: 200px;
+    height: auto;
+    object-fit: contain;
 }
 
-input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 6px;
-    border: 1px solid #ccc;
+.login-box h2 {
+    margin-bottom: 25px;
+    font-size: 28px;
+    color: #1e3a8a;
 }
 
-button {
-    width: 100%;
+.login-box input {
+    padding: 12px 15px;
+    margin-bottom: 15px;
+
+    border-radius: 25px;
+    border: 2px solid #e5e7eb;
+
+    outline: none;
+    transition: 0.2s;
+}
+
+.login-box input:focus {
+    border-color: #3b82f6;
+}
+
+.login-box button {
     padding: 12px;
-    background: #28a745;
-    color: white;
     border: none;
-    border-radius: 6px;
-    font-size: 16px;
+    border-radius: 25px;
+
+    background: #1e3a8a;
+    color: white;
+
+    font-weight: 600;
     cursor: pointer;
+
+    transition: 0.3s;
 }
 
-button:hover {
-    background: #218838;
+.login-box button:hover {
+    background: #2563eb;
+}
+
+/* FOOTER */
+.footer {
+    margin-top: 15px;
+    font-size: 13px;
+    color: #6b7280;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer a {
+    color: #3b82f6;
+    text-decoration: none;
+}
+
+/* RIGHT WELCOME */
+/* RIGHT WELCOME */
+.welcome-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px;
+    color: white;
+
+    /* Cập nhật quan trọng ở đây */
+    background: linear-gradient(to right, rgba(28, 71, 150, 0.85), rgba(59, 130, 246, 0.6)), 
+                url('../images/login.jpg'); /* Kiểm tra lại đường dẫn này */
+    background-repeat: no-repeat;
+    background-size: cover;    /* Bắt buộc có để ảnh phủ kín khung hình */
+    background-position: center; /* Để tâm ảnh luôn nằm giữa */
+    
+    position: relative;
+    overflow: hidden;
+}
+/* blob effect */
+.welcome-box::before {
+    content: "";
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+    background: rgba(255, 255, 255, 0.15);
+
+    border-radius: 50%;
+    top: -200px;
+    right: -200px;
+
+    filter: blur(60px);
+}
+
+.welcome-box h1 {
+    font-size: 70px;
+    font-weight: 700;
+    z-index: 1;
+}
+
+.welcome-box p {
+    margin-top: 15px;
+    max-width: 400px;
+    opacity: 0.9;
+    z-index: 1;
 }

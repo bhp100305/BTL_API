@@ -1,0 +1,66 @@
+/* ===== SUMMARY ===== */
+.summary{
+    display:flex;
+    gap:20px;
+    margin-bottom:25px;
+}
+
+.sum-card{
+    flex:1;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 10px 20px rgba(0,0,0,0.08);
+}
+
+.sum-card.red{
+    background:linear-gradient(135deg,#ef4444,#f87171);
+    color:white;
+}
+
+/* ===== CALENDAR ===== */
+.calendar{
+    display:grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap:15px;
+}
+
+/* DAY BOX */
+.day{
+    background:white;
+    border-radius:12px;
+    padding:10px;
+    min-height:120px;
+    box-shadow:0 5px 10px rgba(0,0,0,0.05);
+}
+
+/* DATE */
+.date{
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+/* EXAM CARD */
+.exam{
+    background:#3b82f6;
+    color:white;
+    padding:6px;
+    border-radius:8px;
+    font-size:12px;
+    margin-bottom:5px;
+}
+
+/* TYPE */
+.exam.midterm{
+    background:#f59e0b;
+}
+
+.exam.final{
+    background:#ef4444;
+}
+
+/* UPCOMING */
+.exam.upcoming{
+    border:2px solid yellow;
+}
